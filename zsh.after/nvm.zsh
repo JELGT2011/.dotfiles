@@ -1,5 +1,5 @@
 
 export NVM_DIR=$HOME/.nvm
-eval "$(brew --prefix nvm)/nvm.sh"
+source $(brew --prefix nvm)/nvm.sh
 
 
