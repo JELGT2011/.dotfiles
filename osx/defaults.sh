@@ -41,7 +41,7 @@ defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+# defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -58,7 +58,7 @@ defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 #defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
 
 # Increase window resize speed for Cocoa applications
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.25
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -88,7 +88,7 @@ defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+# defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Disable the crash reporter
 #defaults write com.apple.CrashReporter DialogType -string "none"
@@ -156,24 +156,25 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Disable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+# defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+# defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
 # Follow the keyboard focus while zoomed in
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
@@ -187,12 +188,12 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
+defaults write NSGlobalDomain AppleMetricUnits -bool false
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
+# sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -234,9 +235,9 @@ defaults write com.apple.finder QuitMenuItem -bool true
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Set Desktop as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
-defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+# # For other paths, use `PfLo` and `file:///full/path/here/`
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -245,7 +246,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -280,9 +281,9 @@ defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # Automatically open a new Finder window when a volume is mounted
-defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
-defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
-defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+# defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+# defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+# defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # Show item info near icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
@@ -371,11 +372,10 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock launchanim -bool false
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.dock expose-animation-duration -float 0.25
 
-# Don’t group windows by application in Mission Control
-# (i.e. use the old Exposé behavior instead)
-defaults write com.apple.dock expose-group-by-app -bool false
+# Group windows by application in Mission Control
+defaults write com.apple.dock expose-group-by-app -bool true
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -388,8 +388,9 @@ defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
+
 # Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.25
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -409,6 +410,7 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (
 
 # Add a spacer to the left side of the Dock (where the applications are)
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
 # Add a spacer to the right side of the Dock (where the Trash is)
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
@@ -424,15 +426,18 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
+
 # Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0
+# defaults write com.apple.dock wvous-tl-corner -int 2
+# defaults write com.apple.dock wvous-tl-modifier -int 0
+
 # Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0
+
 # Bottom left screen corner → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
+# defaults write com.apple.dock wvous-bl-corner -int 5
+# defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
 # Safari & WebKit                                                             #
