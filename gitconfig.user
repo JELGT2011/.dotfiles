@@ -9,3 +9,7 @@
 [push]
   default = matching
 
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
