@@ -155,25 +155,3 @@ kwmc bindsym ctrl+alt-right window -m space right
 kwmc bindsym ctrl+alt-1 window -m display 0
 kwmc bindsym ctrl+alt-2 window -m display 1
 kwmc bindsym ctrl+alt-3 window -m display 2
-
-// Increase Container Gaps
-kwmc bindsym prefix-x space -g increase horizontal
-kwmc bindsym prefix-y space -g increase vertical
-
-// Decrease Container Gaps
-kwmc bindsym prefix+shift-x space -g decrease horizontal
-kwmc bindsym prefix+shift-y space -g decrease vertical
-
-// Increase Screen Padding
-kwmc bindsym prefix-left space -p increase left
-kwmc bindsym prefix-right space -p increase right
-kwmc bindsym prefix-up space -p increase top
-kwmc bindsym prefix-down space -p increase bottom
-kwmc bindsym prefix-p space -p increase all
-
-// Decrease Screen Padding
-kwmc bindsym prefix+shift-left space -p decrease left
-kwmc bindsym prefix+shift-right space -p decrease right
-kwmc bindsym prefix+shift-up space -p decrease top
-kwmc bindsym prefix+shift-down space -p decrease bottom
-kwmc bindsym prefix+shift-p space -p decrease all
