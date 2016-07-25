@@ -1,3 +1,3 @@
 
-export SERVER_NAME="mg-explorer-2"
+SERVER_NAME="mg-explorer-2"
 
