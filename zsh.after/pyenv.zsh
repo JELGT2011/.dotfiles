@@ -1,4 +1,5 @@
 
+# disabled because Uber setup scripts install virtualenv and virtualenvwrapper
 # Use Homebrew's directories rather than ~/.pyenv
 # export PYENV_ROOT="/usr/local/var/pyenv"
 
