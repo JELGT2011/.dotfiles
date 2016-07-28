@@ -12,10 +12,11 @@
 # mysql -uuber -puber
 
 export VAGRANTNAME="spyker-journey-4"
-export CURRENTPROJECT="ufs"
+export PROJECTNAME="ufs"
 
 alias uber-list-vagrants="boxer list_vagrants --owner=$UBER_OWNER"
 alias uber-dev-ssh="boxer v $VAGRANTNAME"
-alias uber-dev="cd $CURRENTPROJECT && source env/bin/activate"
-alias uber-dev-sync="boxer sync $VAGRANTNAME $CURRENTPROJECT"
+alias uber-adhoc-ssh="boxer v adhoc05-sjc1"
+alias uber-dev="cd $PROJECTNAME && source env/bin/activate"
+alias uber-dev-sync="boxer sync $VAGRANTNAME $PROJECTNAME"
 alias uber-relink="ln -S ~/Uber/sync/$VAGRANTNAME.dev.uber.com/home/uber/ ~/Repositories/"

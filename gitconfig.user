@@ -18,4 +18,4 @@
 [url "ssh://git@github.com/uber/"]
   insteadOf = https://github.com/uber/
 [url "ssh://gitolite@code.uber.internal:2222/"]
-  insteadOf = https://code.uber.internal/
+	insteadOf = https://code.uber.internal/
