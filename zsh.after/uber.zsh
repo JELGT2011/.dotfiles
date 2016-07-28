@@ -12,6 +12,9 @@
 # mysql -uuber -puber
 
 export VAGRANTNAME="spyker-journey-4"
+export CURRENTPROJECT="ufs"
 
-alias my-vagrants="boxer list_vagrants --owner='jlibbey@uber.com'"
-
+alias uber-list-vagrants="boxer list_vagrants --owner=$UBER_OWNER"
+alias uber-dev-ssh="boxer v $VAGRANTNAME"
+alias uber-dev="cd $CURRENTPROJECT && source env/bin/activate"
+alias uber-dev-sync="boxer sync $VAGRANTNAME $CURRENTPROJECT"
