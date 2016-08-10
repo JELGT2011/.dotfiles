@@ -30,11 +30,13 @@ define hyper cmd+ctrl+alt+shift
 kwmc bindsym hyper-h window -f west
 */
 
+define PADDING 20
+
 // Set default values for screen padding
-kwmc config padding 20 20 20 20
+kwmc config padding PADDING PADDING PADDING PADDING
 
 // Set default values for container gaps
-kwmc config gap 20 20
+kwmc config gap PADDING PADDING
 
 // Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp
@@ -49,15 +51,11 @@ kwmc config float-non-resizable on
 kwmc config lock-to-container on
 
 // Set focus-follows-mouse-mode to autoraise
-kwmc config focus-follows-mouse off
+kwmc config focus-follows-mouse on
 
 /* Focus-follows-mouse is temporarily disabled when
    a floating window has focus */
 kwmc config standby-on-float off
-
-/* The mouse will automatically move to the center
-   of the focused window */
-kwmc config mouse-follows-focus off
 
 // Allow window focus to wrap-around
 kwmc config cycle-focus on
@@ -104,54 +102,30 @@ kwmc bindsym prefix-f window -z fullscreen
 kwmc bindsym prefix-d window -z parent
 kwmc bindsym prefix-w window -t focused
 
-// Mark Window
-kwmc bindsym cmd+alt+ctrl-m window -mk focused
-kwmc bindsym cmd+alt+ctrl-h window -mk west wrap
-kwmc bindsym cmd+alt+ctrl-l window -mk east wrap
-kwmc bindsym cmd+alt+ctrl-j window -mk south wrap
-kwmc bindsym cmd+alt+ctrl-k window -mk north wrap
-
 // Give Focus To Window
-kwmc bindsym cmd+alt-h window -f west
-kwmc bindsym cmd+alt-l window -f east
-kwmc bindsym cmd+alt-j window -f south
-kwmc bindsym cmd+alt-k window -f north
-
-kwmc bindsym cmd+alt-n window -fm prev
-kwmc bindsym cmd+alt-m window -fm next
-
-// Give Focus To Screen
-kwmc bindsym cmd+alt-1 display -f 0
-kwmc bindsym cmd+alt-2 display -f 1
-kwmc bindsym cmd+alt-3 display -f 2
+// kwmc bindsym alt+cmd-k window -f north
+// kwmc bindsym alt+cmd-j window -f south
+// kwmc bindsym alt+cmd-l window -f east
+// kwmc bindsym alt+cmd-h window -f west
 
 // Swap Focused Window
-kwmc bindsym ctrl+alt-up window -s north
-kwmc bindsym ctrl+alt-down window -s south
-kwmc bindsym ctrl+alt-right window -s east
-kwmc bindsym ctrl+alt-left window -s west
-kwmc bindsym ctrl+alt-m window -s mark
-
-// Pseudo containers
-kwmc bindsym cmd+ctrl+alt-p tree -pseudo create
-kwmc bindsym cmd+ctrl+alt-o tree -pseudo destroy
-kwmc bindsym ctrl+alt-p window -s prev
-kwmc bindsym ctrl+alt-n window -s next
+kwmc bindsym alt+cmd-up window -s north
+kwmc bindsym alt+cmd-down window -s south
+kwmc bindsym alt+cmd-right window -s east
+kwmc bindsym alt+cmd-left window -s west
 
 // Detach Focused Window And Reinsert In Direction
-kwmc bindsym ctrl+shift-up window -m north
-kwmc bindsym ctrl+shift-down window -m south
-kwmc bindsym ctrl+shift-right window -m east
-kwmc bindsym ctrl+shift-left window -m west
-
-// Detach Marked Window And Reinsert At Focused Window
-kwmc bindsym ctrl+shift-x window -m mark
+kwmc bindsym ctrl+alt+cmd-up window -m north
+kwmc bindsym ctrl+alt+cmd-down window -m south
+kwmc bindsym ctrl+alt+cmd-right window -m east
+kwmc bindsym ctrl+alt+cmd-left window -m west
 
 // Move Focused Window To Space
-kwmc bindsym ctrl+alt-left window -m space left
-kwmc bindsym ctrl+alt-right window -m space right
+kwmc bindsym shift+ctrl+alt+cmd-left window -m space left
+kwmc bindsym shift+ctrl+alt+cmd-right window -m space right
 
 // Move Focused Window To Screen
-kwmc bindsym ctrl+alt-1 window -m display 0
-kwmc bindsym ctrl+alt-2 window -m display 1
-kwmc bindsym ctrl+alt-3 window -m display 2
+kwmc bindsym shift+ctrl+alt+cmd-1 window -m display 0
+kwmc bindsym shift+ctrl+alt+cmd-2 window -m display 1
+kwmc bindsym shift+ctrl+alt+cmd-3 window -m display 2
+kwmc bindsym shift+ctrl+alt+cmd-4 window -m display 3
