@@ -126,10 +126,10 @@ kwmc bindsym cmd+alt-2 display -f 1
 kwmc bindsym cmd+alt-3 display -f 2
 
 // Swap Focused Window
-kwmc bindsym ctrl+alt-h window -s west
-kwmc bindsym ctrl+alt-j window -s south
-kwmc bindsym ctrl+alt-k window -s north
-kwmc bindsym ctrl+alt-l window -s east
+kwmc bindsym ctrl+alt-up window -s north
+kwmc bindsym ctrl+alt-down window -s south
+kwmc bindsym ctrl+alt-right window -s east
+kwmc bindsym ctrl+alt-left window -s west
 kwmc bindsym ctrl+alt-m window -s mark
 
 // Pseudo containers
@@ -139,10 +139,10 @@ kwmc bindsym ctrl+alt-p window -s prev
 kwmc bindsym ctrl+alt-n window -s next
 
 // Detach Focused Window And Reinsert In Direction
-kwmc bindsym ctrl+shift-k window -m north
-kwmc bindsym ctrl+shift-l window -m east
-kwmc bindsym ctrl+shift-j window -m south
-kwmc bindsym ctrl+shift-h window -m west
+kwmc bindsym ctrl+shift-up window -m north
+kwmc bindsym ctrl+shift-down window -m south
+kwmc bindsym ctrl+shift-right window -m east
+kwmc bindsym ctrl+shift-left window -m west
 
 // Detach Marked Window And Reinsert At Focused Window
 kwmc bindsym ctrl+shift-x window -m mark
