@@ -51,12 +51,15 @@ kwmc config float-non-resizable on
 kwmc config lock-to-container on
 
 // Set focus-follows-mouse-mode to autoraise
-// This moves the mouse position on workspace change
-kwmc config focus-follows-mouse off
+kwmc config focus-follows-mouse on
 
 /* Focus-follows-mouse is temporarily disabled when
    a floating window has focus */
 kwmc config standby-on-float off
+
+/* The mouse will automatically move to the center
+of the focused window */
+kwmc config mouse-follows-focus off
 
 // Allow window focus to wrap-around
 kwmc config cycle-focus on
