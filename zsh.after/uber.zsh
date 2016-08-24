@@ -1,8 +1,11 @@
 
 # export VAGRANT="millennium-falcon"
 export VAGRANT="bentley-monaco-1"
+
 export PROJECTS=("ufs" "kaleidoscope-international")
 export PROJECT="ufs"
+export KALE="kaleidoscope-international"
+
 export ADHOC="adhoc05-sjc1"
 
 uvagrants() {
@@ -53,9 +56,7 @@ usync() {
 }
 
 ulink() {
-  for i in ${PROJECTS[@]}; do
-    ln -S ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/${i} ~/Repositories/
-  done
+  ln -sf ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/* ~/Repositories/
 }
 
 uadhoc() {
