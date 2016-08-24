@@ -52,7 +52,7 @@ usync() {
   fi
 }
 
-uber-relink() {
+ulink() {
   for i in ${PROJECTS[@]}; do
     ln -S ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/${i} ~/Repositories/
   done
