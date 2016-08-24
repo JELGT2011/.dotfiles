@@ -1,5 +1,5 @@
 
-export VAGRANTNAME="spyker-journey-4"
+export VAGRANTNAME="batmobile"
 export PROJECTNAME="ufs"
 export ADHOCNAME="adhoc05-sjc1"
 
