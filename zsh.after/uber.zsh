@@ -1,14 +1,15 @@
 
-export VAGRANTNAME="batmobile"
+export VAGRANTNAME="millennium-falcon"
 export PROJECTNAME="ufs"
 export ADHOCNAME="adhoc05-sjc1"
 
-alias uber-dev-vagrants="boxer list_vagrants --owner=$UBER_OWNER"
-alias uber-dev-ssh="ssh uber@$VAGRANTNAME.dev -t 'exec zsh'"
-alias uber-dev-db="mysql -uuber -puber"
-alias uber-dev-activate="source ~/$PROJECTNAME/env/bin/activate"
-alias uber-dev-sync="boxer sync $VAGRANTNAME uber/$PROJECTNAME"
-alias uber-dev-pycharm="ssh -YC4 uber@$VAGRANTNAME.dev charm"
+alias uber-vagrants="boxer list_vagrants --owner=$UBER_OWNER"
+alias uber-ssh="ssh uber@$VAGRANTNAME.dev -t 'exec zsh'"
+alias uber-db="mysql -uuber -puber"
+alias uber-activate="source ~/$PROJECTNAME/env/bin/activate"
+alias uber-env="source ~/$PROJECTNAME/env/bin/activate"
+alias uber-venv="source ~/$PROJECTNAME/env/bin/activate"
+alias uber-sync="boxer sync $VAGRANTNAME uber/$PROJECTNAME"
 alias uber-dev-relink="ln -S ~/Uber/sync/$VAGRANTNAME.dev.uber.com/home/uber/ ~/Repositories/"
 
-alias uber-adhoc-ssh="ssh $ADHOCNAME -t 'exec zsh'"
+alias uber-adhoc="ssh $ADHOCNAME -t 'exec zsh'"
