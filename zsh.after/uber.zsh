@@ -1,6 +1,5 @@
 
-# export VAGRANT="millennium-falcon"
-export VAGRANT="bentley-monaco-1"
+export VAGRANT="millennium-falcon"
 
 export PROJECTS=("ufs" "kaleidoscope-international")
 export PROJECT="ufs"
@@ -13,9 +12,9 @@ uvagrants() {
 }
 
 uussh() {
-  if [ "$1" != "" ]
+  if [ "$1" == "$KALE" ]
   then
-    ssh uber@$1.dev -t 'exec zsh'
+    ssh -L 14919:localhost:14919 uber@$VAGRANT.dev -t 'exec zsh'
   else
     ssh uber@$VAGRANT.dev -t 'exec zsh'
   fi
