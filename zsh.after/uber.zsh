@@ -2,7 +2,6 @@
 export VAGRANT="millennium-falcon"
 
 export KALE="kaleidoscope-international"
-export PROJECTS=("ufs" "kaleidoscope-international")
 export PROJECT="ufs"
 
 export ADHOC="adhoc05-sjc1"
