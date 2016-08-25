@@ -1,22 +1,25 @@
 
-# export VAGRANT="millennium-falcon"
 export VAGRANT="shelby-lanos-7"
-
-export KALE="kaleidoscope-international"
-export PROJECT="ufs"
-
 export ADHOC="adhoc05-sjc1"
+
+local -a projects
+projects=("ufs" "kaleidoscope-international" "chariots")
 
 uvagrants() {
   boxer list_vagrants --owner=$UBER_OWNER
 }
 
 uussh() {
-    ssh uber@$VAGRANT.dev -t 'zsh'
+  ssh uber@$VAGRANT.dev -t 'zsh'
 }
 
 utunnel() {
-  ssh -fNL 14919:localhost:14919 uber@$VAGRANT.dev
+  if [ "$1" != "" ]
+  then
+    ssh -fNL $1:localhost:$1 uber@$VAGRANT.dev
+  else
+    ssh -fNL 14919:localhost:14919 uber@$VAGRANT.dev
+  fi
 }
 
 udb() {
@@ -29,12 +32,7 @@ udb() {
 }
 
 uactivate() {
-  if [ "$1" != "" ]
-  then
-    source ~/$1/env/bin/activate
-  else
-    source ~/$PROJECT/env/bin/activate
-  fi
+  source env/bin/activate
 }
 
 uenv() {
@@ -45,12 +43,12 @@ uvenv() {
 }
 
 usync() {
-  if [ "$1" != "" ]
-  then
-    boxer sync $VAGRANT uber/$1
-  else
-    boxer sync $VAGRANT uber/$PROJECT
-  fi
+  local -a sync
+  sync=()
+  for i in $projects; do
+    sync+=("uber/$i")
+  done
+  boxer sync $VAGRANT $sync
 }
 
 ulink() {
