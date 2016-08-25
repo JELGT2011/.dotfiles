@@ -1,5 +1,6 @@
 
-export VAGRANT="millennium-falcon"
+# export VAGRANT="millennium-falcon"
+export VAGRANT="shelby-lanos-7"
 
 export KALE="kaleidoscope-international"
 export PROJECT="ufs"
@@ -11,12 +12,11 @@ uvagrants() {
 }
 
 uussh() {
-  if [ "$1" == "$KALE" ]
-  then
-    ssh -L 14919:localhost:14919 uber@$VAGRANT.dev -t 'zsh'
-  else
     ssh uber@$VAGRANT.dev -t 'zsh'
-  fi
+}
+
+utunnel() {
+  ssh -fNL 14919:localhost:14919 uber@$VAGRANT.dev
 }
 
 udb() {
