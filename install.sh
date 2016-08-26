@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
-# clone self
-if [ ! -d "$HOME/.dotfiles" ]; then
-  git clone https://github.com/JELGT2011/.dotfiles.git $HOME/.dotfiles
-fi
-
-cd $HOME/.dotfiles
-
 here="$(dirname "$0")"
 
 # include common.sh
 . "$here/common.sh"
+
+cd $HOME/.dotfiles
 
 # install yadr
 if [ ! -d "$HOME/.yadr" ]; then

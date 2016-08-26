@@ -10,7 +10,8 @@ My current dotfiles setup.  I use [YADR](https://github.com/skwp/dotfiles) as a 
 
 To clone and install:
 ```bash
-sh -c "`curl -fsSL https://raw.githubusercontent.com/JELGT2011/.dotfiles/master/install.sh`"
+git clone https://github.com/JELGT2011/.dotfiles.git $HOME/.dotfiles && cd $_
+./install.sh
 ```
 
 To update, just run the `update.sh` script.

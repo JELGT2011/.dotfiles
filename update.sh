@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-cd $HOME/.dotfiles
-
 here="$(dirname "$0")"
 
 # include common.sh
 . "$here/common.sh"
+
+cd $HOME/.dotfiles
 
 # only update yadr if flagged
 if [[ $* == *-y* ]] || [[ $* == *--yadr* ]]; then
