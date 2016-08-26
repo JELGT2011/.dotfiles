@@ -6,10 +6,10 @@ My current dotfiles setup.  I use [YADR](https://github.com/skwp/dotfiles) as a 
 ![screenshot][pretend_busy]
 ![screenshot][clean]
 
-## Install
+## Usage
 
-Ensure you have rcp and yadr already installed.
-Clone the directory and run the `install.sh` script.
+To install, clone the directory and run the `install.sh` script.
+To update, just run the `update.sh` script.
 
 ## Attributions
 

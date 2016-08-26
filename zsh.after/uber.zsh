@@ -2,7 +2,6 @@
 export VAGRANT="shelby-lanos-7"
 export ADHOC="adhoc05-sjc1"
 
-local -a projects
 projects=("ufs" "kaleidoscope-international" "chariots")
 
 uvagrants() {
@@ -14,8 +13,7 @@ uussh() {
 }
 
 utunnel() {
-  if [ "$1" != "" ]
-  then
+  if [ "$1" != "" ]; then
     ssh -fNL $1:localhost:$1 uber@$VAGRANT.dev
   else
     ssh -fNL 14919:localhost:14919 uber@$VAGRANT.dev
@@ -23,8 +21,7 @@ utunnel() {
 }
 
 udb() {
-  if [ "$1" != "" ]
-  then
+  if [ "$1" != "" ]; then
     $1 -uuber -puber
   else
     mysql -uuber -puber
@@ -43,8 +40,7 @@ uvenv() {
 }
 
 usync() {
-  local -a sync
-  sync=()
+  local sync=()
   for i in $projects; do
     sync+=("uber/$i")
   done
@@ -56,8 +52,7 @@ ulink() {
 }
 
 uadhoc() {
-  if [ "$1" != "" ]
-  then
+  if [ "$1" != "" ]; then
     ssh $1 -t 'exec zsh'
   else
     ssh $ADHOC -t 'exec zsh'
