@@ -3,21 +3,10 @@
 here="$(dirname "$0")"
 
 unamestr=$(uname)
-osenums=(
-  "linux"
-  "osx"
-  "windows"
-  "unknown"
-)
+osenums=("linux" "osx" "windows" "unknown")
 ostype=""
 
-exclude=(
-  "install.sh"
-  "update.sh"
-  "common.sh"
-  "README.md"
-  "osx"
-)
+exclude=("install.sh" "update.sh" "common.sh" "README.md" "osx")
 
 dotfilesinstall() {
   local rcmexclude=()
