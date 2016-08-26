@@ -4,8 +4,16 @@ export ADHOC="adhoc05-sjc1"
 
 projects=("ufs" "kaleidoscope-international" "chariots")
 
-uvagrants() {
+uvagrantlist() {
   boxer list_vagrants --owner=$UBER_OWNER
+}
+
+uvagrantcreate() {
+  if [ "$1" != "" ]; then
+    boxer create_vagrant --services golden --name "$1" --aws-type m4.4xlarge
+  else
+    echo "vagrant name is required"
+  fi
 }
 
 uussh() {
