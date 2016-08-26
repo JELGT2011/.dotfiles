@@ -1,16 +1,26 @@
 
-export VAGRANT="shelby-cherokee-6"
+export VAGRANT="millenium-falcon"
 export ADHOC="adhoc05-sjc1"
 
 projects=("ufs" "kaleidoscope-international" "chariots")
 
-uvagrantlist() {
+uvagrantls() {
   boxer list_vagrants --owner=$UBER_OWNER
 }
 
 uvagrantcreate() {
   if [ "$1" != "" ]; then
     boxer create_vagrant --services golden --name "$1" --aws-type m4.4xlarge
+  else
+    echo "vagrant name is required"
+  fi
+}
+
+uvagrantdestroy() {
+  if [ "$1" != "" ]; then
+    boxer terminate $1
+    boxer delete $1
+    rm ~/Uber/sync/$1.dev.uber.com.remote_paths
   else
     echo "vagrant name is required"
   fi
