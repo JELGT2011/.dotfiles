@@ -10,10 +10,10 @@ exclude=("install.sh" "update.sh" "common.sh" "README.md" "osx")
 
 dotfilesinstall() {
   local rcmexclude=()
-  for i in $exclude; do
+  for i in "${exclude[@]}"; do
     rcmexclude+=("-x $i")
   done
-  rcup rcmexclude
+  rcup $rcmexclude
   zsh
 }
 
