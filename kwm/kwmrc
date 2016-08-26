@@ -130,6 +130,3 @@ kwmc bindsym shift+ctrl+alt+cmd-1 window -m display 0
 kwmc bindsym shift+ctrl+alt+cmd-2 window -m display 1
 kwmc bindsym shift+ctrl+alt+cmd-3 window -m display 2
 kwmc bindsym shift+ctrl+alt+cmd-4 window -m display 3
-
-kwmc bindsys shift+ctrl+alt+cmd-9 exec kwm-restart
-kwmc bindsys shift+ctrl+alt+cmd-0 exec kwm-restart
