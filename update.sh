@@ -4,6 +4,7 @@ unamestr=$(uname)
 
 # update yadr
 cd ~/.yadr
+git reset --hard
 git pull --rebase
 rake update
 
