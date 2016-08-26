@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd $HOME/.dotfiles
+
 here="$(dirname "$0")"
 
 # include common.sh
@@ -33,3 +35,5 @@ case "$ostype" in
 esac
 
 dotfilesinstall
+
+cd $HOME/.dotfiles

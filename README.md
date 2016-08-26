@@ -8,7 +8,11 @@ My current dotfiles setup.  I use [YADR](https://github.com/skwp/dotfiles) as a 
 
 ## Usage
 
-To install, clone the directory and run the `install.sh` script.
+To clone and install:
+```bash
+sh -c "`curl -fsSL https://raw.githubusercontent.com/JELGT2011/.dotfiles/master/install.sh`"
+```
+
 To update, just run the `update.sh` script.
 
 ## Attributions

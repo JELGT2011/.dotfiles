@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# clone self
+if [ ! -d "$HOME/.dotfiles" ]; then
+  git clone https://github.com/JELGT2011/.dotfiles.git $HOME/.dotfiles
+fi
+
+cd $HOME/.dotfiles
+
 here="$(dirname "$0")"
 
 # include common.sh
@@ -30,3 +37,5 @@ if [ ! -d "$HOME/.fonts" ]; then
 fi
 
 dotfilesinstall
+
+cd $HOME/.dotfiles
