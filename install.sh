@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
 
-unamestr=$(uname)
-exclude=("install.sh" "update.sh" "README.md" "osx")
+here="$(dirname "$0")"
 
-dotfilesinstall() {
-  local rcmexclude=()
-  for i in $exclude; do
-    rcmexclude+=("-x $i")
-  done
-  zsh
-}
+# include common.sh
+. "$here/common.sh"
 
 # install yadr
 if [ ! -d "$HOME/.yadr" ]; then
