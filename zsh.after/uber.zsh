@@ -1,5 +1,5 @@
 
-export VAGRANT="millenium-falcon"
+export VAGRANT="millennium-falcon"
 export ADHOC="adhoc05-sjc1"
 
 projects=("ufs" "kaleidoscope-international" "chariots")
