@@ -10,8 +10,8 @@
   default = simple
 
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 
 # Uber internal repos
 [url "ssh://gitolite@code.uber.internal/"]
