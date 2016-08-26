@@ -11,14 +11,17 @@ if [ ! -d "$HOME/.yadr" ]; then
 fi
 
 # install rcp
-if [[ "$unamestr" == 'Linux' ]]; then
-  sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
-  sudo apt-get update
-  sudo apt-get install rcm
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-  brew tap thoughtbot/formulae
-  brew install rcm
-fi
+case "$ostype" in
+  "linux")
+    sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+    sudo apt-get update
+    sudo apt-get install rcm
+  ;;
+  "osx")
+    brew tap thoughtbot/formulae
+    brew install rcm
+  ;;
+esac
 
 # install powerline fonts
 if [ ! -d "$HOME/.fonts" ]; then

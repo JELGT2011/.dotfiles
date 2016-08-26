@@ -3,6 +3,14 @@
 here="$(dirname "$0")"
 
 unamestr=$(uname)
+osenums=(
+  "linux"
+  "osx"
+  "windows"
+  "unknown"
+)
+ostype=""
+
 exclude=(
   "install.sh"
   "update.sh"
@@ -19,3 +27,20 @@ dotfilesinstall() {
   rcup rcmexclude
   zsh
 }
+
+osdetect() {
+  if [[ "$OSTYPE" == "linux-gnu" ]] ||
+     [[ "$OSTYPE" == "cygwin" ]] ||
+     [[ "$OSTYPE" == "msys" ]]; then
+    ostype="linux"
+  elif [[ "$OSTYPE" == "darwin"* ]] ||
+       [[ "$OSTYPE" == "freebsd"* ]]; then
+    ostype="osx"
+  elif [[ "$OSTYPE" == "win32" ]]; then
+    ostype="windows"
+  else
+    ostype="unknown"
+  fi
+}
+
+osdetect

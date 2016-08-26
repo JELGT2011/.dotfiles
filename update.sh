@@ -14,17 +14,22 @@ if [[ $* == *-y* ]] || [[ $* == *--yadr* ]]; then
 fi
 
 # system updates
-if [[ "$unamestr" == 'Linux' ]]; then
-  sudo apt-get update
-  sudo apt-get upgrade
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-  brew update
-  brew upgrade
-fi
+case "$ostype" in
+  "linux")
+    sudo apt-get update
+    sudo apt-get upgrade
+  ;;
+  "osx")
+    brew update
+    brew upgrade
+  ;;
+esac
 
 # uber update
-if [[ "$unamestr" == 'FreeBSD' ]]; then
-  update-uber-home.sh
-fi
+case "$ostype" in
+  "osx")
+    update-uber-home.sh
+  ;;
+esac
 
 dotfilesinstall
