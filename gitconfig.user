@@ -13,9 +13,6 @@
   tool = vimdiff
   conflictstyle = diff3
 
-[alias]
-  clean = clean -xfd
-
 # Uber internal repos
 [url "ssh://gitolite@code.uber.internal/"]
   insteadOf = git://code.uber.internal/
