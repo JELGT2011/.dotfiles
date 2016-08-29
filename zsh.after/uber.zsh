@@ -2,7 +2,7 @@
 export VAGRANT="millennium-falcon"
 export ADHOC="adhoc05-sjc1"
 
-projects=("ufs" "kaleidoscope-international" "chariots")
+projects=("ufs" "kaleidoscope-international" "chariots" "alfa-romeo")
 
 uvagrantls() {
   boxer list_vagrants --owner=$UBER_OWNER
