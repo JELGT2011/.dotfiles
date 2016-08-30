@@ -6,7 +6,7 @@ projects=(
   "ufs"
   "kaleidoscope-international"
   "chariots"
-  "gopath/src/code.uber.internal/growth/alfa-romeo"
+  "gocode/src/code.uber.internal/growth/alfa-romeo"
 )
 
 uvagrantls() {
