@@ -67,6 +67,7 @@ usync() {
 
 ulink() {
   ln -sf ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/* ~/Repositories/
+  ln -sf $GOCODE/src/code.uber.internal/* ~/Repositories/
 }
 
 uadhoc() {
