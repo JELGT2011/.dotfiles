@@ -1,13 +1,12 @@
 
 export VAGRANT="millennium-falcon"
 export ADHOC="adhoc05-sjc1"
+export KSCOPE="kaleidoscope-international"
 
-projects=(
-  "ufs"
-  "kaleidoscope-international"
-  "chariots"
-  "gocode/src/code.uber.internal/growth/alfa-romeo"
-)
+pyprojects=("ufs" "chariots")
+npmprojects=("$KSCOPE")
+goprojects=("alfa-romeo")
+projects=($pyprojects $npmprojects $goprojects)
 
 uvagrantls() {
   boxer list_vagrants --owner=$UBER_OWNER
@@ -25,7 +24,7 @@ uvagrantdestroy() {
   if [ "$1" != "" ]; then
     boxer terminate $1
     boxer delete $1
-    rm ~/Uber/sync/$1.dev.uber.com.remote_paths
+    rm $HOME/Uber/sync/$1.dev.uber.com.remote_paths
   else
     echo "vagrant name is required"
   fi
@@ -62,16 +61,35 @@ uvenv() {
   uactivate "$*"
 }
 
+uproject() {
+  if [[ ${pyprojects[(r)$1]} == $1 ]]; then
+    cd $HOME/$1/
+    uenv $1
+  elif [[ ${npmprojects[(r)$1]} == $1 ]]; then
+    cd $HOME/$1/
+  elif [[ ${goprojects[(r)$1]} == $1 ]]; then
+    cd $GOPATH/src/code.uber.internal/growth/$1
+  fi
+}
+
 usync() {
   local sync=()
-  for i in $projects; do
+  for i in $pyprojects $npmprojects; do
     sync+=("uber/$i")
+  done
+  for i in $goprojects; do
+    sync+=("uber/gocode/src/code.uber.internal/growth/$i")
   done
   boxer sync $VAGRANT $sync
 }
 
 ulink() {
-  ln -sf ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/* ~/Repositories/
+  for i in $pyprojects $npmprojects; do
+    ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $HOME/Repositories/
+  done
+  for i in $goprojects; do
+    ln -sf $GOPATH/src/code.uber.internal/growth/$i $HOME/Repositories/
+  done
 }
 
 uadhoc() {
