@@ -2,7 +2,12 @@
 export VAGRANT="millennium-falcon"
 export ADHOC="adhoc05-sjc1"
 
-projects=("ufs" "kaleidoscope-international" "chariots" "alfa-romeo")
+projects=(
+  "ufs"
+  "kaleidoscope-international"
+  "chariots"
+  "gopath/src/code.uber.internal/growth/alfa-romeo"
+)
 
 uvagrantls() {
   boxer list_vagrants --owner=$UBER_OWNER
@@ -67,7 +72,6 @@ usync() {
 
 ulink() {
   ln -sf ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/* ~/Repositories/
-  ln -sf $GOCODE/src/code.uber.internal/* ~/Repositories/
 }
 
 uadhoc() {
