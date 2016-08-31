@@ -2,6 +2,7 @@
 export VAGRANT="millennium-falcon"
 export ADHOC="adhoc05-sjc1"
 export KSCOPE="kaleidoscope-international"
+export REPOHOME="$HOME/Repositories"
 
 pyprojects=("ufs" "chariots")
 npmprojects=("$KSCOPE")
@@ -62,33 +63,30 @@ uvenv() {
 }
 
 uproject() {
-  if [[ ${pyprojects[(r)$1]} == $1 ]]; then
-    cd $HOME/$1/
-    uenv $1
-  elif [[ ${npmprojects[(r)$1]} == $1 ]]; then
-    cd $HOME/$1/
-  elif [[ ${goprojects[(r)$1]} == $1 ]]; then
-    cd $GOPATH/src/code.uber.internal/growth/$1
+  if [[ "$1" == "" ]] || [[ "$2" == "" ]] || [[ "$3" == "" ]]; then
+    return
+  fi
+
+  local types=("node" "flask" "go")
+  if [[ "$1" == "node" ]] || [[ "$1" == "flask" ]]; then
+    git clone gitolite@code.uber.internal:$2/$3 $HOME/$3 --recursive
+  elif [[ "$1" == "go" ]]; then
+    git clone gitolite@code.uber.internal:$2/$3 $GOPATH/src/code.uber.internal/$2/$3 --recursive
+    ln -sf $GOPATH/src/code.uber.internal/$2/$3 $HOME/$3
   fi
 }
 
 usync() {
   local sync=()
-  for i in $pyprojects $npmprojects; do
+  for i in $projects; do
     sync+=("uber/$i")
-  done
-  for i in $goprojects; do
-    sync+=("uber/gocode/src/code.uber.internal/growth/$i")
   done
   boxer sync $VAGRANT $sync
 }
 
 ulink() {
-  for i in $pyprojects $npmprojects; do
-    ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $HOME/Repositories/
-  done
-  for i in $goprojects; do
-    ln -sf $GOPATH/src/code.uber.internal/growth/$i $HOME/Repositories/
+  for i in $projects; do
+    ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $REPOHOME/
   done
 }
 
