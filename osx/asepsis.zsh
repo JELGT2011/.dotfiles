@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 
 # csrutil disable; reboot
 # # asepsisctl uninstall_wrapper
