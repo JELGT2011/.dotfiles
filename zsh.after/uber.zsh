@@ -1,13 +1,8 @@
 
 export VAGRANT="millennium-falcon"
 export ADHOC="adhoc05-sjc1"
-export KSCOPE="kaleidoscope-international"
-export REPOHOME="$HOME/Repositories"
 
-pyprojects=("ufs" "chariots")
-npmprojects=("$KSCOPE")
-goprojects=("alfa-romeo")
-projects=($pyprojects $npmprojects $goprojects)
+projects=("ufs" "chariots" "kaleidoscope-international" "alfa-romeo")
 
 uvagrantls() {
   boxer list_vagrants --owner=$UBER_OWNER
@@ -25,7 +20,7 @@ uvagrantdestroy() {
   if [ "$1" != "" ]; then
     boxer terminate $1
     boxer delete $1
-    rm $HOME/Uber/sync/$1.dev.uber.com.remote_paths
+    rm ~/Uber/sync/$1.dev.uber.com.remote_paths
   else
     echo "vagrant name is required"
   fi
@@ -69,10 +64,10 @@ uproject() {
 
   local types=("node" "flask" "go")
   if [[ "$1" == "node" ]] || [[ "$1" == "flask" ]]; then
-    git clone gitolite@code.uber.internal:$2/$3 $HOME/$3 --recursive
+    git clone gitolite@code.uber.internal:$2/$3 ~/$3 --recursive
   elif [[ "$1" == "go" ]]; then
     git clone gitolite@code.uber.internal:$2/$3 $GOPATH/src/code.uber.internal/$2/$3 --recursive
-    ln -sf $GOPATH/src/code.uber.internal/$2/$3 $HOME/$3
+    ln -sf $GOPATH/src/code.uber.internal/$2/$3 ~/$3
   fi
 }
 
@@ -86,7 +81,7 @@ usync() {
 
 ulink() {
   for i in $projects; do
-    ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $REPOHOME/
+    ln -sf ~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i ~/Repositories
   done
 }
 
