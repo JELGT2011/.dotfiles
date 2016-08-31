@@ -14,7 +14,7 @@ uvagrantls() {
 
 uvagrantcreate() {
   if [ "$1" != "" ]; then
-    boxer create_vagrant --services golden --name "$1" --aws-type m4.4xlarge
+    boxer create_vagrant --name "$1" --aws-type m4.4xlarge
   else
     echo "vagrant name is required"
   fi
