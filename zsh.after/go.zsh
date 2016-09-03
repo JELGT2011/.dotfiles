@@ -1,11 +1,16 @@
 
+here="$(dirname "$0")"
+
+# include uber.zsh
+. "$here/uber.zsh"
+
 # for local, set GOPATH at uber sync folder
 case "$ostype" in
   "linux")
-    export GOPATH=$HOME/gocode
+    export GOPATH="~/gocode"
   ;;
   "osx")
-    export GOPATH=$HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/gocode
+    export GOPATH="~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/gocode"
   ;;
 esac
 
