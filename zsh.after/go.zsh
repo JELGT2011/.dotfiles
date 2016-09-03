@@ -7,10 +7,10 @@ here="$(dirname "$0")"
 # for local, set GOPATH at uber sync folder
 case "$ostype" in
   "linux")
-    export GOPATH="~/gocode"
+    export GOPATH="$HOME/gocode"
   ;;
   "osx")
-    export GOPATH="~/Uber/sync/$VAGRANT.dev.uber.com/home/uber/gocode"
+    export GOPATH="$HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/gocode"
   ;;
 esac
 

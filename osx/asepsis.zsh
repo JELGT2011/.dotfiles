@@ -5,5 +5,5 @@
 # csrutil enable; reboot
 # asepsis diagnose
 
-touch ~/.no-asepsis-os-restriction
-touch ~/.asepsis-suppress-update-errors
+touch $HOME/.no-asepsis-os-restriction
+touch $HOME/.asepsis-suppress-update-errors
