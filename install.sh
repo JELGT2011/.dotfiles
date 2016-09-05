@@ -26,6 +26,10 @@
     ;;
   esac
 
+  # install powerlevel9k terminal theme
+  git clone https://github.com/bhilburn/powerlevel9k.git  ~/.zprezto/modules/prompt/external/powerlevel9k
+  ln -s ~/.zprezto/modules/prompt/external/powerlevel9k/powerlevel9k.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_powerlevel9k_setup
+
   # install powerline fonts
   if [ ! -d "$HOME/.fonts" ]; then
     git clone https://github.com/powerline/fonts.git $HOME/.fonts
