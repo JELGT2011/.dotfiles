@@ -1,5 +1,6 @@
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=("context" "dir" "vcs")
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=("status" "time")
+POWERLEVEL9K_TIME_FORMAT="%D{%r}"
 
 prompt powerlevel9k
