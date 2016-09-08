@@ -2,18 +2,19 @@
 # always log repositories and installs
 case "$ostype" in
   "linux")
-    alias apt-get() {
-      if [[ $1 == "install" ]]  && [[ $2 != "" ]]; then
-        sudo "apt-get $1 $2" >> $HOME/.dotfiles/.linux/installs.zsh
-        command sudo apt-get "$@"
-      fi
-    }
-    alias add-apt-repository() {
-      if [[ $1 != "" ]]; then
-        sudo "add-apt-repository $1" >> $HOME/.dotfiles/.linux/repositories.zsh
-        command sudo add-apt-repository "$@"
-      fi
-    }
+    # TODO: figure out why the executes on keystroke
+    # alias apt-get() {
+    #   if [[ $1 == "install" ]]  && [[ $2 != "" ]]; then
+    #     sudo "apt-get $1 $2" >> $HOME/.dotfiles/.linux/installs.zsh
+    #     command sudo apt-get "$@"
+    #   fi
+    # }
+    # alias add-apt-repository() {
+    #   if [[ $1 != "" ]]; then
+    #     sudo "add-apt-repository $1" >> $HOME/.dotfiles/.linux/repositories.zsh
+    #     command sudo add-apt-repository "$@"
+    #   fi
+    # }
   ;;
   "osx")
     alias brew() {

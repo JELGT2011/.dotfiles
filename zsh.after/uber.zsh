@@ -31,7 +31,7 @@ uvagrantdestroy() {
 }
 
 uussh() {
-  boxer extend_vagrant $VAGRANT --lifeguard-token="$BOXER_LIFEGUARD_TOKEN"
+  boxer extend_vagrant $VAGRANT
   ssh uber@$VAGRANT.dev -t 'zsh'
 }
 
