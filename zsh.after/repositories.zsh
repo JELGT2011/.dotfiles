@@ -4,14 +4,14 @@ case "$ostype" in
   "linux")
     alias apt-get() {
       if [[ $1 == "install" ]]  && [[ $2 != "" ]]; then
-        "apt-get $1 $2" >> $HOME/.dotfiles/.linux/installs.zsh
-        command apt-get "$@"
+        sudo "apt-get $1 $2" >> $HOME/.dotfiles/.linux/installs.zsh
+        command sudo apt-get "$@"
       fi
     }
     alias add-apt-repository() {
       if [[ $1 != "" ]]; then
-        "add-apt-repository $1" >> $HOME/.dotfiles/.linux/repositories.zsh
-        command add-apt-repository "$@"
+        sudo "add-apt-repository $1" >> $HOME/.dotfiles/.linux/repositories.zsh
+        command sudo add-apt-repository "$@"
       fi
     }
   ;;
