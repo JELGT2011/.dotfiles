@@ -1,11 +1,10 @@
 
-export DEFAULT_USER="jasonlibbey"
+DEFAULT_USER="jasonlibbey"
 
-unamestr=$(uname)
 osenums=("linux" "osx" "windows" "unknown")
 ostype=""
 
-exclude=("install.sh" "update.sh" "common.sh" "README.md" "osx")
+exclude=("install.sh" "README.md" "update.sh")
 
 dotfilesinstall() {
   local rcmexclude=()

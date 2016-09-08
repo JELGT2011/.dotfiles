@@ -1,7 +1,7 @@
 
-export VAGRANT="millennium-falcon"
-export ADHOC="adhoc05-sjc1"
-export KSCOPE="kaleidoscope-international"
+VAGRANT="millennium-falcon"
+ADHOC="adhoc05-sjc1"
+KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots")
 npmprojects=("$KSCOPE")

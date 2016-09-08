@@ -1,41 +1,41 @@
 #!/usr/bin/env bash
 
-{
-  here="$(dirname "$0")"
+here="$(dirname "$0")"
 
-  # include global.zsh
-  . "$here/zsh.after/global.zsh"
+# include global.zsh
+. "zsh.after/global.zsh"
 
-  cd $HOME/.dotfiles
+cd $HOME/.dotfiles
 
-  # only update yadr if flagged
-  if [[ $* == *-y* ]] || [[ $* == *--yadr* ]]; then
-    cd $HOME/.yadr
-    git reset --hard
-    git pull --rebase
-    rake update
-  fi
+# only update yadr if flagged
+if [[ $* == *-y* ]] || [[ $* == *--yadr* ]]; then
+  cd $HOME/.yadr
+  git reset --hard
+  git pull --rebase
+  rake update
+fi
 
-  # system updates
-  case "$ostype" in
-    "linux")
-      sudo apt-get update
-      sudo apt-get upgrade
-    ;;
-    "osx")
-      brew update
-      brew upgrade
-    ;;
-  esac
+# system updates
+case "$ostype" in
+  "linux")
+    sudo apt-get update
+    sudo apt-get upgrade
+  ;;
+  "osx")
+    brew update
+    brew upgrade
+  ;;
+esac
 
-  # uber update
-  case "$ostype" in
-    "osx")
-      update-uber-home.sh
-    ;;
-  esac
+# uber update
+case "$ostype" in
+  "osx")
+    update-uber-home.sh
+  ;;
+esac
 
-  dotfilesinstall
+dotfilesinstall
 
-  cd $HOME/.dotfiles
-}
+cd $HOME/.dotfiles
+
+unset here
