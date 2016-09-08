@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # install yadr
-if [ ! -d "$HOME/.yadr" ]; then
+if [[ ! -d "$HOME/.yadr" ]]; then
   sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 fi
 
@@ -30,7 +30,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git  ~/.zprezto/modules/promp
 ln -s ~/.zprezto/modules/prompt/external/powerlevel9k/powerlevel9k.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_powerlevel9k_setup
 
 # install powerline fonts
-if [ ! -d "$HOME/.fonts" ]; then
+if [[ ! -d "$HOME/.fonts" ]]; then
   git clone https://github.com/powerline/fonts.git $HOME/.fonts
   $HOME/.fonts/install.sh
 fi

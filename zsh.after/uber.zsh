@@ -13,7 +13,7 @@ uvagrantls() {
 }
 
 uvagrantcreate() {
-  if [ "$1" != "" ]; then
+  if [[ "$1" != "" ]]; then
     boxer create_vagrant --name "$1" --aws-type m4.4xlarge
   else
     echo "vagrant name is required"
@@ -21,7 +21,7 @@ uvagrantcreate() {
 }
 
 uvagrantdestroy() {
-  if [ "$1" != "" ]; then
+  if [[ "$1" != "" ]]; then
     boxer terminate $1
     boxer delete $1
     rm $HOME/Uber/sync/$1.dev.uber.com.remote_paths
@@ -35,7 +35,7 @@ uussh() {
 }
 
 utunnel() {
-  if [ "$1" != "" ]; then
+  if [[ "$1" != "" ]]; then
     ssh -fNL $1:localhost:$1 uber@$VAGRANT.dev
   else
     ssh -fNL 14919:localhost:14919 uber@$VAGRANT.dev
@@ -43,7 +43,7 @@ utunnel() {
 }
 
 udb() {
-  if [ "$1" != "" ]; then
+  if [[ "$1" != "" ]]; then
     $1 -uuber -puber
   else
     mysql -uuber -puber
@@ -93,7 +93,7 @@ ulink() {
 }
 
 uadhoc() {
-  if [ "$1" != "" ]; then
+  if [[ "$1" != "" ]]; then
     ssh $1 -t 'exec zsh'
   else
     ssh $ADHOC -t 'exec zsh'
