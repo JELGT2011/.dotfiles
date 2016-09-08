@@ -7,7 +7,7 @@ ostype=""
 exclude=("install.sh" "README.md" "update.sh")
 
 # source local zshrc if it exists
-if [[ ! -d "$HOME/.zshrc.local" ]]; then
+if [[ -d "$HOME/.zshrc.local" ]]; then
   . "$HOME/.zshrc.local"
 fi
 
