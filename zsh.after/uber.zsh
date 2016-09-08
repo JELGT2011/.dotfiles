@@ -51,7 +51,7 @@ udb() {
 }
 
 uactivate() {
-  source env/bin/activate
+  . "env/bin/activate"
 }
 
 uenv() {
