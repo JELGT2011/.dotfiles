@@ -17,15 +17,15 @@ case "$ostype" in
     # }
   ;;
   "osx")
-    alias brew() {
-      if [[ $1 == "install" ]]  && [[ $2 != "" ]]; then
-        "brew $1 $2" >> $HOME/.dotfiles/.osx/installs.zsh
-        # this line cannot be outside the if/else block or zsh starts executing it after each keystroke
-        command brew "$@"
-      elif [[ $1 == "tap" ]] && [[ $2 != "" ]]; then
-        "brew $1 $2" >> $HOME/.dotfiles/.osx/repositories.zsh
-        command brew "$@"
-      fi
-    }
+    # alias brew() {
+    #   if [[ $1 == "install" ]]  && [[ $2 != "" ]]; then
+    #     "brew $1 $2" >> $HOME/.dotfiles/.osx/installs.zsh
+    #     # this line cannot be outside the if/else block or zsh starts executing it after each keystroke
+    #     command brew "$@"
+    #   elif [[ $1 == "tap" ]] && [[ $2 != "" ]]; then
+    #     "brew $1 $2" >> $HOME/.dotfiles/.osx/repositories.zsh
+    #     command brew "$@"
+    #   fi
+    # }
   ;;
 esac
