@@ -31,6 +31,7 @@ uvagrantdestroy() {
 }
 
 uussh() {
+  boxer extend_vagrant $VAGRANT
   ssh uber@$VAGRANT.dev -t 'zsh'
 }
 
