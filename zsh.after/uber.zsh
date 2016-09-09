@@ -78,9 +78,7 @@ usync() {
   for i in $pyprojects $npmprojects; do
     sync+=("uber/$i")
   done
-  for i in $goprojects; do
-    sync+=("uber/gocode/src/code.uber.internal/growth/$i")
-  done
+  sync+=("uber/gocode/src")
   boxer sync $VAGRANT $sync
 }
 
