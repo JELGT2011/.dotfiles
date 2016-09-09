@@ -1,5 +1,5 @@
 
-DEFAULT_USER="jasonlibbey"
+export DEFAULT_USER="jasonlibbey"
 
 osenums=("linux" "osx" "windows" "unknown")
 ostype=""
