@@ -74,7 +74,7 @@ kwmc config spawn left
    does not get tiled by Kwm by default.
    This is because some applications do not have the
    AXWindowRole and AXStandardWindowSubRole */
-// kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="Nylas N1" properties={role="AXDialog"}
 
 // Disable border for focused window
 kwmc config border focused off
