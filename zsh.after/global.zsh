@@ -4,7 +4,7 @@ export DEFAULT_USER="jasonlibbey"
 osenums=("linux" "osx" "windows" "unknown")
 ostype=""
 
-exclude=("install.sh" "README.md" "update.sh")
+exclude=("install.sh" "README.md" "update.sh" "bin")
 
 # source local zshrc if it exists
 if [[ -a "$HOME/.zshrc.local" ]]; then

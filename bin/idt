@@ -1,0 +1,107 @@
+#!/Users/jasonlibbey/.dotfiles/env/bin/python
+
+"""
+Get an API token here: https://idonethis.com/api/token/
+Configure `I_DONE_THIS_USER` and `I_DONE_THIS_TOKEN` environment variables
+"""
+
+from collections import defaultdict
+import os
+import json
+import requests
+import sys
+import webbrowser
+
+from termcolor import colored
+
+ME = 'me'
+MY_USER = os.environ.get('I_DONE_THIS_USER')
+TEAM = 'xchange-eng'
+TOKEN = os.environ.get('I_DONE_THIS_TOKEN')
+URL_DONES = 'https://idonethis.com/api/v0.1/dones/'
+URL_MAIN = 'https://idonethis.com/org/uber-uprw/cal/xchange-eng/'
+
+POP = 'pop'
+LS = 'ls'
+
+
+def print_item(item):
+    if item.startswith('[ ]'):
+        print colored(item, 'red')
+    else:
+        if not item.startswith('[x] '):
+            item = '[x] {}'.format(item)
+        print colored(item, 'green')
+
+def print_owner(owner, items):
+    print colored(owner, attrs=['bold'])
+    for item in items:
+        print_item(item['text'])
+    print
+
+def get_dones(session):
+    data = {
+        'done_date': 'today',
+        'page_size': '100',
+    }
+    r = session.get(URL_DONES, params=data)
+    resp = r.json()
+    dones = defaultdict(list)
+    if resp['ok']:
+        for item in resp['results']:
+            dones[item['owner']].append({
+                'text': item['raw_text'],
+                'id': item['id'],
+            })
+    return dones
+
+def create_done(session, text):
+    data = {
+        'raw_text': text,
+        'team': TEAM,
+    }
+    r = session.post(URL_DONES, json=data)
+    resp = r.json()
+    if resp['ok']:
+        print(resp['result']['permalink'])
+
+def delete_done(session, id_):
+    r = session.delete('{url}{id_}'.format(url=URL_DONES, id_=id_))
+
+def main(args):
+    if len(args) >= 2:
+        first_arg = args[1]
+        session = requests.Session()
+        session.headers['Authorization'] = 'Token {}'.format(TOKEN)
+        if first_arg == LS:
+            dones = get_dones(session)
+            for owner, items in dones.items():
+                print_owner(owner, items)
+        elif first_arg == ME:
+            dones = get_dones(session)
+            print_owner(MY_USER, dones[MY_USER])
+        elif first_arg == POP:
+            my_dones = get_dones(session)[MY_USER]
+            most_recent = my_dones[-1]
+            print 'Removed task: {}'.format(most_recent['text'])
+            delete_done(session, most_recent['id'])
+        else:
+            text = ' '.join(args[1:])
+            create_done(session, text)
+    else:
+        # there is something in stdin
+        if not sys.stdin.isatty():
+            # take first line and use it as the `done`
+            piped_in = sys.stdin.read()
+            # still display what the command outputted
+            print piped_in
+            line = piped_in.split('\n')[0].strip()
+            sys.argv.append(line)
+            main(sys.argv)
+        # open site if there are no args, via stdin or cli
+        else:
+            webbrowser.open(URL_MAIN)
+
+
+if __name__ == '__main__':
+    main(sys.argv)
