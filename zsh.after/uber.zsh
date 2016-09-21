@@ -6,7 +6,8 @@ KSCOPE="kaleidoscope-international"
 pyprojects=("ufs" "chariots")
 npmprojects=("$KSCOPE")
 goprojects=("alfa-romeo")
-projects=($pyprojects $npmprojects $goprojects)
+javaprojects=("AlfaRomeo")
+projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
 uvagrantls() {
   boxer list_vagrants --owner=$UBER_OWNER
@@ -58,6 +59,7 @@ uactivate() {
 uenv() {
   uactivate "$*"
 }
+
 uvenv() {
   uactivate "$*"
 }
@@ -68,6 +70,8 @@ uproject() {
     uenv $1
   elif [[ ${npmprojects[(r)$1]} == $1 ]]; then
     cd $HOME/$1/
+  elif [[ ${javaprojects[(r)$1]} == $1 ]]; then
+    cd $HOME/$1/
   elif [[ ${goprojects[(r)$1]} == $1 ]]; then
     cd $GOPATH/src/code.uber.internal/growth/$1
   fi
@@ -75,7 +79,7 @@ uproject() {
 
 usync() {
   local sync=()
-  for i in $pyprojects $npmprojects; do
+  for i in $pyprojects $npmprojects $javaprojects; do
     sync+=("uber/$i")
   done
   sync+=("uber/gocode/src")
@@ -83,7 +87,7 @@ usync() {
 }
 
 ulink() {
-  for i in $pyprojects $npmprojects; do
+  for i in $pyprojects $npmprojects $javaprojects; do
     ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $HOME/Repositories/
   done
   for i in $goprojects; do
