@@ -6,7 +6,7 @@ KSCOPE="kaleidoscope-international"
 pyprojects=("ufs" "chariots")
 npmprojects=("$KSCOPE")
 goprojects=("alfa-romeo")
-javaprojects=("AlfaRomeo")
+javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
 uvagrantls() {
