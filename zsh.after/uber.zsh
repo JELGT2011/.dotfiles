@@ -44,6 +44,10 @@ utunnel() {
   fi
 }
 
+usshrestart() {
+  kill $(ps aux | grep ssh)
+}
+
 udb() {
   if [[ "$1" != "" ]]; then
     $1 -uuber -puber
