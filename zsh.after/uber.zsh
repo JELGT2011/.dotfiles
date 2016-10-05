@@ -1,5 +1,6 @@
 
 VAGRANT="millennium-falcon"
+VAGRANT_SECONDARY="renault-century-2"
 ADHOC="adhoc05-sjc1"
 KSCOPE="kaleidoscope-international"
 
@@ -31,8 +32,13 @@ uvagrantdestroy() {
   fi
 }
 
-uussh() {
+ussh() {
+  /ussh
   boxer extend_vagrant $VAGRANT --lifeguard-token="$LIFEGUARD_TOKEN"
+  boxer extend_vagrant $VAGRANT_SECONDARY --lifeguard-token="$LIFEGUARD_TOKEN"
+}
+
+uussh() {
   ssh uber@$VAGRANT.dev -t 'zsh'
 }
 
