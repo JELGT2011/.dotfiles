@@ -33,7 +33,7 @@ uvagrantdestroy() {
 }
 
 ussh() {
-  /ussh
+  command ussh
   boxer extend_vagrant $VAGRANT --lifeguard-token="$LIFEGUARD_TOKEN"
   boxer extend_vagrant $VAGRANT_SECONDARY --lifeguard-token="$LIFEGUARD_TOKEN"
 }
