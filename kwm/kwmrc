@@ -50,8 +50,8 @@ kwmc config float-non-resizable on
 // Automatically resize the window to its container
 kwmc config lock-to-container on
 
-// Set focus-follows-mouse-mode to off
-kwmc config focus-follows-mouse off
+// Set focus-follows-mouse-mode to on
+kwmc config focus-follows-mouse on
 
 /* Focus-follows-mouse is temporarily disabled when
    a floating window has focus */

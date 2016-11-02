@@ -1,7 +1,6 @@
 
 VAGRANT="millennium-falcon"
-VAGRANT_SECONDARY="renault-century-2"
-ADHOC="adhoc05-sjc1"
+ADHOC="xchange01-dca1"
 KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots")
@@ -35,7 +34,6 @@ uvagrantdestroy() {
 ussh() {
   command ussh
   boxer extend_vagrant $VAGRANT --lifeguard-token="$LIFEGUARD_TOKEN"
-  boxer extend_vagrant $VAGRANT_SECONDARY --lifeguard-token="$LIFEGUARD_TOKEN"
 }
 
 uussh() {
