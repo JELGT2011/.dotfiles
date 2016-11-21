@@ -91,7 +91,7 @@ usync() {
     sync+=("uber/$i")
   done
   sync+=("uber/gocode/src")
-  boxer sync $VAGRANT $sync
+  boxer sync $VAGRANT $sync --prefer local
 }
 
 ulink() {
