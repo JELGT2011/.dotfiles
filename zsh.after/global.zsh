@@ -4,7 +4,7 @@ export DEFAULT_USER="jlibbey"
 osenums=("linux" "osx" "windows" "unknown")
 ostype=""
 
-exclude=("install.sh" "README.md" "update.sh" "bin")
+exclude=("install.sh" "README.md" "update.sh" "bin" "com.googlecode.iterm2.plist")
 
 # source local zshrc if it exists
 if [[ -a "$HOME/.zshrc.local" ]]; then
