@@ -1,24 +1,18 @@
-
 [user]
   name = Jason Libbey
-  email = jelgt2011@gmail.com
-
+  email = jlibbey@uber.com
 [credential]
   helper = osxkeychain
-
 [push]
   default = simple
-
 [merge]
   tool = vimdiff
   conflictstyle = diff3
-
-# Uber internal repos
-[url "ssh://gitolite@code.uber.internal/"]
-  insteadOf = git://code.uber.internal/
-
 [url "ssh://git@github.com/uber/"]
-  insteadOf = https://github.com/uber/
-
+	insteadOf = https://github.com/uber/
+[url "ssh://git@github.com/uber/"]
+	insteadOf = https://github.com/uber/
+[url "ssh://gitolite@code.uber.internal/"]
+	insteadOf = git://code.uber.internal/
 [url "ssh://gitolite@code.uber.internal:2222/"]
 	insteadOf = https://code.uber.internal/

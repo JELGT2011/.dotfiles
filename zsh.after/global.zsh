@@ -20,6 +20,13 @@ dotfilesinstall() {
   zsh
 }
 
+background() {
+  if [[ "$1" != "" ]]; then
+    nohup "$1" &>/dev/null &
+    disown
+  fi
+}
+
 osdetect() {
   if [[ "$OSTYPE" == "linux-gnu" ]] ||
      [[ "$OSTYPE" == "cygwin" ]] ||
@@ -34,5 +41,3 @@ osdetect() {
     ostype="unknown"
   fi
 }
-
-osdetect

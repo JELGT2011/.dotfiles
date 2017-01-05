@@ -12,6 +12,8 @@ here="$(dirname "$0")"
 
 cd $HOME/.dotfiles
 
+osdetect
+
 # install rcp
 case "$ostype" in
   "linux")

@@ -4,6 +4,8 @@ here="$(dirname "$0")"
 # include uber.zsh
 . "$here/uber.zsh"
 
+osdetect
+
 # for local, set GOPATH at uber sync folder
 case "$ostype" in
   "linux")

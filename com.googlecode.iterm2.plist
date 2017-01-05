@@ -10,6 +10,8 @@
 	<true/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -630,9 +632,9 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>365 213 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>449 328 796 473 0 0 1920 1200 </string>
+	<string>449 512 918 381 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>22 28 451 555 0 0 1920 1200 </string>
+	<string>21 27 927 1147 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>22 661 1396 603 0 0 1440 2560 </string>
 	<key>New Bookmarks</key>
@@ -873,13 +875,13 @@
 				<key>Alpha Component</key>
 				<real>0.25</real>
 				<key>Blue Component</key>
-				<real>0.99999129772186279</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.99997437000274658</real>
+				<real>0.91000000000000003</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.65000000000000002</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -2276,7 +2278,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-12-29T15:42:44Z</date>
+	<date>2017-01-02T19:02:22Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>

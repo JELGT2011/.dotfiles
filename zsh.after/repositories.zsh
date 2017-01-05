@@ -1,4 +1,6 @@
 
+osdetect
+
 # always log repositories and installs
 case "$ostype" in
   "linux")

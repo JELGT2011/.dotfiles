@@ -15,6 +15,8 @@ if [[ $* == *-y* ]] || [[ $* == *--yadr* ]]; then
   rake update
 fi
 
+osdetect
+
 # system updates
 case "$ostype" in
   "linux")
