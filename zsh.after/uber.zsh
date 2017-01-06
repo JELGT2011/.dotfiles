@@ -5,7 +5,7 @@ KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots")
 npmprojects=($KSCOPE "maze")
-goprojects=("alfa-romeo" "mazebackend" "silverback")
+goprojects=("growth/alfa-romeo" "growth/silverback" "science/mazebackend")
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
@@ -87,7 +87,7 @@ uproject() {
   elif [[ ${javaprojects[(r)$1]} == $1 ]]; then
     cd $HOME/$1/
   elif [[ ${goprojects[(r)$1]} == $1 ]]; then
-    cd $GOPATH/src/code.uber.internal/growth/$1
+    cd $GOPATH/src/code.uber.internal/$1
   fi
 }
 
@@ -105,7 +105,7 @@ ulink() {
     ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $HOME/Repositories/
   done
   for i in $goprojects; do
-    ln -sf $GOPATH/src/code.uber.internal/growth/$i $HOME/Repositories/
+    ln -sf $GOPATH/src/code.uber.internal/$i $HOME/Repositories/
   done
 }
 
