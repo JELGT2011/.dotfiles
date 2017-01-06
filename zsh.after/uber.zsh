@@ -43,7 +43,7 @@ ussh() {
 }
 
 uussh() {
-  boxer v uber@$VAGRANT
+  boxer v $VAGRANT
 }
 
 utunnel() {
