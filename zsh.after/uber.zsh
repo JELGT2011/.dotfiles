@@ -43,7 +43,7 @@ ussh() {
 }
 
 uussh() {
-  ssh uber@$VAGRANT.dev -t 'zsh'
+  boxer v uber@$VAGRANT
 }
 
 utunnel() {
