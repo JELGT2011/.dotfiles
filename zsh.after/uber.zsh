@@ -4,8 +4,8 @@ ADHOC="xchange01-dca1"
 KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots")
-npmprojects=("$KSCOPE" "maze")
-goprojects=("alfa-romeo" "mazebackend")
+npmprojects=($KSCOPE "maze")
+goprojects=("alfa-romeo" "mazebackend" "silverback")
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
@@ -16,12 +16,12 @@ uvagrantls() {
 uvagrantcreate() {
   if [[ "$1" != "" ]]; then
     boxer create_vagrant \
-    --name "$1" \
-    --aws-type m4.4xlarge \
-    --aws-region us-west-1 \
-    --distro jessie \
-    --allow-rename \
-    --with-lifeguard-enroll
+      --name "$1" \
+      --aws-type m4.4xlarge \
+      --aws-region us-west-1 \
+      --distro jessie \
+      --allow-rename \
+      --with-lifeguard-enroll
   else
     echo "vagrant name is required"
   fi
