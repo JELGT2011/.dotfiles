@@ -1,0 +1,38 @@
+#!/Users/jlibbey/.dotfiles/env/bin/python
+
+import os
+import sys
+
+from phabricator import Phabricator
+
+DESCRIPTION = '<<cli generated>>'
+PHID_ME = 'PHID-USER-3mt5xdvpko3qxqxevjyi'
+PHID_XCHANGE = 'PHID-PROJ-aqit5pgsjasyd2uivzeh'
+
+
+def main():
+    if len(sys.argv) > 1:
+        phab = Phabricator()  # This will use your ~/.arcrc file
+        task = phab.maniphest.createtask(
+            title=' '.join(sys.argv[1:]),
+            description=DESCRIPTION,
+            projectPHIDs=[PHID_XCHANGE],
+            ccPHIDs=[
+                PHID_XCHANGE,
+                PHID_ME,
+            ],
+            auxiliary={
+                'std:maniphest:task_type': 'task',
+                'uber:maniphest_category': 'xchange',
+                'std:maniphest:uber:catephory': '["PHID-UCAT-hbfujyrb2kod5s3u7zws"]',
+                'std:maniphest:uber:status': 'inactive'
+            },
+            ownerPHID=PHID_ME,
+        )
+        print(task.uri)
+    else:
+        print('Usage: {0} <arg>'.format(os.path.basename(sys.argv[0])))
+
+
+if __name__ == '__main__':
+    main()
