@@ -6,8 +6,6 @@ import sys
 from phabricator import Phabricator
 
 DESCRIPTION = '<<cli generated>>'
-PHID_ME = 'PHID-USER-3mt5xdvpko3qxqxevjyi'
-PHID_XCHANGE = 'PHID-PROJ-aqit5pgsjasyd2uivzeh'
 
 
 def main():
@@ -16,18 +14,17 @@ def main():
         task = phab.maniphest.createtask(
             title=' '.join(sys.argv[1:]),
             description=DESCRIPTION,
-            projectPHIDs=[PHID_XCHANGE],
+            projectPHIDs=[os.environ.get("PHID_XCHANGE")],
             ccPHIDs=[
-                PHID_XCHANGE,
-                PHID_ME,
+                os.environ.get("PHID_XCHANGE"),
+                os.environ.get("PHID_ME"),
             ],
             auxiliary={
                 'std:maniphest:task_type': 'task',
                 'uber:maniphest_category': 'xchange',
                 'std:maniphest:uber:catephory': '["PHID-UCAT-hbfujyrb2kod5s3u7zws"]',
-                'std:maniphest:uber:status': 'inactive'
             },
-            ownerPHID=PHID_ME,
+            ownerPHID=os.environ.get("PHID_ME"),
         )
         print(task.uri)
     else:
