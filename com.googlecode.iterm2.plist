@@ -640,9 +640,9 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>365 213 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1680 1025 796 473 1440 0 1440 2560 </string>
+	<string>1681 1024 1016 502 1440 0 1440 2560 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1462 44 1396 2490 1440 0 1440 2560 </string>
+	<string>1462 1296 1396 603 1440 0 1440 2560 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>22 661 1396 603 0 0 1440 2560 </string>
 	<key>New Bookmarks</key>
@@ -1253,7 +1253,7 @@
 			<key>Normal Font</key>
 			<string>SauceCodePowerline-Regular 12</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
@@ -2023,7 +2023,7 @@
 			<key>Normal Font</key>
 			<string>SauceCodePowerline-Regular 12</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
@@ -2807,7 +2807,7 @@
 			<key>Normal Font</key>
 			<string>SauceCodePowerline-Regular 12</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
@@ -3076,7 +3076,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-01-18T12:24:25Z</date>
+	<date>2017-01-19T12:24:23Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
