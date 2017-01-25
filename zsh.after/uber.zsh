@@ -97,7 +97,6 @@ usync() {
   done
   sync+=("uber/gocode/src")
   boxer sync $VAGRANT $sync \
-    --allow-path-symlinks \
     --with-virtualenvs \
     --fast-check
 }
