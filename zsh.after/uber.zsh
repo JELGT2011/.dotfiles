@@ -4,7 +4,7 @@ KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots" "hailstorm_config")
 npmprojects=($KSCOPE "maze")
-goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend")
+goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend" "performance/jukebox")
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
@@ -108,4 +108,9 @@ ulink() {
   for i in $goprojects; do
     ln -sf $GOPATH/src/code.uber.internal/$i $HOME/Repositories/
   done
+}
+
+goclone() {
+  mkdir -p $GOPATH/src/code.uber.internal/$1
+  git clone gitolite@code.uber.internal:$1 $GOPATH/src/code.uber.internal/$1 --recursive
 }
