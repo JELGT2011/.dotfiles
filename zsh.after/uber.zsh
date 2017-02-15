@@ -4,7 +4,7 @@ KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots" "hailstorm_config")
 npmprojects=($KSCOPE "maze")
-goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend" "performance/jukebox")
+goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend" "performance/jukebox.git")
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
