@@ -2,8 +2,8 @@
 VAGRANT="millennium-falcon"
 KSCOPE="kaleidoscope-international"
 
-pyprojects=("ufs" "chariots" "hailstorm_config")
-npmprojects=($KSCOPE "maze")
+pyprojects=("ufs" "chariots" "hailstorm_config" "masonjar")
+npmprojects=($KSCOPE)
 goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend" "performance/jukebox.git")
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
