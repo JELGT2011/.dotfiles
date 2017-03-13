@@ -2,9 +2,9 @@
 VAGRANT="millennium-falcon"
 KSCOPE="kaleidoscope-international"
 
-pyprojects=("ufs" "chariots" "hailstorm_config" "masonjar")
+pyprojects=("ufs" "chariots" "hailstorm_config")
 npmprojects=($KSCOPE "realtime-api")
-goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend" "performance/jukebox.git")
+goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend")
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
 
