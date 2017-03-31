@@ -45,6 +45,10 @@ uussh() {
   boxer v $VAGRANT
 }
 
+uclean() {
+  rm `find . -name '*.unison.tmp'`
+}
+
 utunnel() {
   if [[ "$1" != "" ]]; then
     ssh -fNL $1:localhost:$1 uber@$VAGRANT.dev
