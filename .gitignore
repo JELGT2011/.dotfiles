@@ -3,6 +3,7 @@
 
 ### Project ###
 env
+secrets
 
 ### Windows ###
 # Windows image file caches
