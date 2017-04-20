@@ -1,0 +1,2 @@
+
+set-environment -g 'SSH_AUTH_SOCK' ~/.ssh/ssh_auth_sock

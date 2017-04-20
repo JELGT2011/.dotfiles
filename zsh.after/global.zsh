@@ -8,21 +8,10 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 osenums=("linux" "osx" "windows" "unknown")
 ostype=""
 
-exclude=("install.sh" "README.md" "update.sh" "bin" "com.googlecode.iterm2.plist")
-
 # source local zshrc if it exists
 if [[ -a "$HOME/.zshrc.local" ]]; then
   . "$HOME/.zshrc.local"
 fi
-
-dotfilesinstall() {
-  local rcmexclude=()
-  for i in $exclude; do
-    rcmexclude+=("-x $i")
-  done
-  rcup $rcmexclude
-  zsh
-}
 
 background() {
   if [[ "$1" != "" ]]; then

@@ -37,7 +37,7 @@ if [[ ! -d "$HOME/.fonts" ]]; then
   $HOME/.fonts/install.sh
 fi
 
-dotfilesinstall
+rcup
 
 cd $HOME/.dotfiles
 

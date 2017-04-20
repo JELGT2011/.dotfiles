@@ -36,8 +36,6 @@ case "$ostype" in
   ;;
 esac
 
-dotfilesinstall
-
 cd $HOME/.dotfiles
 
 unset here
