@@ -1,0 +1,62 @@
+# Enable kwm compatibility mode
+khd kwm on
+
+# set color of default mode
+khd mode default color 0xFFD5C4A1
+
+# Enable the prefix mode
+khd mode prefix prefix on
+khd mode prefix timeout 0.75
+khd mode prefix restore default
+khd mode prefix color 0xFF458588
+
+# Activate prefix mode
+ctrl - s                 :    khd -e "mode activate prefix"
+
+# Modify Container
+prefix - s               :    kwmc window -c split-mode toggle
+
+prefix - k               :    kwmc window -c expand 0.05 north
+prefix - j               :    kwmc window -c expand 0.05 south
+prefix - l               :    kwmc window -c expand 0.05 east
+prefix - h               :    kwmc window -c expand 0.05 west
+
+prefix + shift - k       :    kwmc window -c reduce 0.05 north
+prefix + shift - j       :    kwmc window -c reduce 0.05 south
+prefix + shift - l       :    kwmc window -c reduce 0.05 east
+prefix + shift - h       :    kwmc window -c reduce 0.05 west
+
+# Set Temporary Window Container
+prefix - f               :    kwmc window -z fullscreen
+
+# Give Focus To Window
+cmd + alt - k            :    kwmc window -f north
+cmd + alt - j            :    kwmc window -f south
+cmd + alt - l            :    kwmc window -f east
+cmd + alt - h            :    kwmc window -f west
+
+# Swap Focused Window
+ctrl + alt - up          :    kwmc window -s north
+ctrl + alt - down        :    kwmc window -s south
+ctrl + alt - right       :    kwmc window -s east
+ctrl + alt - left        :    kwmc window -s west
+ctrl + alt - m           :    kwmc window -s mark
+
+# Detach Focused Window And Reinsert In Direction
+ctrl + alt + cmd - up    :    kwmc window -m north
+ctrl + alt + cmd - down  :    kwmc window -m south
+ctrl + alt + cmd - left  :    kwmc window -m east
+ctrl + alt + cmd - right :    kwmc window -m west
+
+# Detach Marked Window And Reinsert At Focused Window
+ctrl + shift - x         :    kwmc window -m mark
+
+# Move Focused Window To Space
+ctrl + alt + cmd + shift - left  :    kwmc window -m space left
+ctrl + alt + cmd + shift - right :    kwmc window -m space right
+
+# Move Focused Window To Screen
+ctrl + alt + cmd + shift - 1 :    kwmc window -m display 0
+ctrl + alt + cmd + shift - 2 :    kwmc window -m display 1
+ctrl + alt + cmd + shift - 3 :    kwmc window -m display 2
+ctrl + alt + cmd + shift - 4 :    kwmc window -m display 3

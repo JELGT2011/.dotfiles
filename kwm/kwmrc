@@ -1,4 +1,24 @@
 /*
+This is a sample config for Kwm
+
+The following statements can be used to set Kwms internal directory structure.
+
+    This is the root folder for Kwms files, the only thing this actually
+    specifies is the location of the 'init' script which Kwm runs upon startup.
+    Defaults to $HOME/.kwm
+
+        kwm_home /path/to/.kwm
+
+    This is the root folder in which all files included using 'include' must reside.
+    Defaults to $HOME/.kwm
+
+        kwm_include /path/to/.kwm/include
+
+    This is the folder in which all bsp-layouts managed by 'tree load' and 'tree save'
+    is loaded from / saved to. Defaults to $HOME/.kwm/layouts
+
+        kwm_layouts /path/to/.kwm/layouts
+
 Commands prefixed with 'kwmc' will call
 local functions corresponding to the
 kwmc syntax.
@@ -12,119 +32,66 @@ if they were written inside kwmrc.
 
 include filename
 
-e.g: bindsym-commands in a separate file called 'binds'
-include binds
-
-Create variables that can be used in the below commands.
-Variables are in file-scope and must be defined before
-they can be used. Re-definition is also possible.
-Variable names can not contain whitespace, where as
-the value can.
-
-define variable value
-
-e.g: create a variable for the hyper-key
-define hyper cmd+ctrl+alt+shift
-kwmc bindsym hyper-h window -f west
+e.g: window-rules in a separate file called 'rules'
+    include rules
 */
 
-define PADDING 20
+# Set default values for screen padding
+kwmc config padding 20 20 20 20
 
-// Set default values for screen padding
-kwmc config padding PADDING PADDING PADDING PADDING
+# Set default values for container gaps
+kwmc config gap 20 20
 
-// Set default values for container gaps
-kwmc config gap PADDING PADDING
-
-// Default tiling mode for Kwm (bsp | monocle | float)
+# Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp
 
-// Let Kwm listen for hotkeys
-kwmc config hotkeys on
-
-// Automatically float windows that fail to resize
+# Automatically float windows that fail to resize
 kwmc config float-non-resizable on
 
-// Automatically resize the window to its container
-kwmc config lock-to-container off
+# Automatically resize the window to its container
+kwmc config lock-to-container on
 
-// Set focus-follows-mouse-mode to on
-kwmc config focus-follows-mouse off
+# Set focus-follows-mouse-mode to autoraise
+kwmc config focus-follows-mouse on
 
-/* Focus-follows-mouse is temporarily disabled when
-   a floating window has focus */
+/*
+    Focus-follows-mouse is temporarily disabled when
+    a floating window has focus
+*/
 kwmc config standby-on-float on
 
-/* The mouse will automatically move to the center
-of the focused window */
+# Center window when made floating
+kwmc config center-on-float on
+
+/*
+    The mouse will automatically move to the center
+    of the focused window
+*/
 kwmc config mouse-follows-focus off
 
-// Allow window focus to wrap-around
+/*
+    Allows a window to be moved by dragging,
+    when a modifier key and left-click is held down.
+
+    Allows a window to be resized by dragging
+    when a modifier key and right-click is held down.
+*/
+kwmc config mouse-drag on
+
+# The modifier keys to be held down to initiate mouse-drag
+kwmc config mouse-drag mod shift+ctrl
+
+# Allow window focus to wrap-around
 kwmc config cycle-focus on
 
-// Set default container split-ratio
+# Set default container split-ratio
 kwmc config split-ratio 0.5
 
-// New splits become the left leaf-node
+# New splits become the left leaf-node
 kwmc config spawn left
 
-/* Add custom tiling rules for applications that
-   does not get tiled by Kwm by default.
-   This is because some applications do not have the
-   AXWindowRole and AXStandardWindowSubRole */
-kwmc rule owner="Nylas N1" properties={role="AXDialog"}
-
-// Disable border for focused window
-kwmc config border focused off
-
-// Disable border for marked window
-kwmc config border marked off
-
-// Enable the prefix mode
-kwmc mode prefix prefix on
-kwmc mode prefix timeout 0.75
-kwmc mode prefix restore default
-kwmc mode prefix color 0xFF458588
-
-/*  Default Keybinds */
-// Activate prefix mode
-kwmc bindsym ctrl-s mode activate prefix
-
-// Modify Container
-kwmc bindsym prefix-s window -c split-mode toggle
-kwmc bindsym prefix-h window -c reduce 0.05
-kwmc bindsym prefix-l window -c expand 0.05
-kwmc bindsym prefix-< window -c type toggle
-
-// Set Temporary Window Container
-kwmc bindsym prefix-f window -z fullscreen
-kwmc bindsym prefix-d window -z parent
-kwmc bindsym prefix-w window -t focused
-
-// Give Focus To Window
-// kwmc bindsym alt+cmd-k window -f north
-// kwmc bindsym alt+cmd-j window -f south
-// kwmc bindsym alt+cmd-l window -f east
-// kwmc bindsym alt+cmd-h window -f west
-
-// Swap Focused Window
-kwmc bindsym alt+cmd-up window -s north
-kwmc bindsym alt+cmd-down window -s south
-kwmc bindsym alt+cmd-right window -s east
-kwmc bindsym alt+cmd-left window -s west
-
-// Detach Focused Window And Reinsert In Direction
-kwmc bindsym ctrl+alt+cmd-up window -m north
-kwmc bindsym ctrl+alt+cmd-down window -m south
-kwmc bindsym ctrl+alt+cmd-right window -m east
-kwmc bindsym ctrl+alt+cmd-left window -m west
-
-// Move Focused Window To Space
-kwmc bindsym shift+ctrl+alt+cmd-left window -m space left
-kwmc bindsym shift+ctrl+alt+cmd-right window -m space right
-
-// Move Focused Window To Screen
-kwmc bindsym shift+ctrl+alt+cmd-1 window -m display 0
-kwmc bindsym shift+ctrl+alt+cmd-2 window -m display 1
-kwmc bindsym shift+ctrl+alt+cmd-3 window -m display 2
-kwmc bindsym shift+ctrl+alt+cmd-4 window -m display 3
+# Enable border for marked window
+kwmc config border marked on
+kwmc config border marked size 2
+kwmc config border marked color 0xFFCC5577
+kwmc config border marked radius 6
