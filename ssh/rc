@@ -1,6 +1,7 @@
 
 if test "$SSH_AUTH_SOCK" ; then
+    eval `ssh-agent`
     ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
-    eval `ssh-agent -s`
-    ssh-add
 fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
