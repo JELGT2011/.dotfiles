@@ -101,8 +101,7 @@ usync() {
   done
   sync+=("uber/gocode/src")
   boxer sync $VAGRANT $sync \
-    --with-virtualenvs \
-    --fast-check
+    --with-virtualenvs
 }
 
 ulink() {
