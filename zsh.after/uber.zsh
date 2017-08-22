@@ -100,8 +100,7 @@ usync() {
     sync+=("uber/$i")
   done
   sync+=("uber/gocode/src")
-  boxer sync $VAGRANT $sync \
-    --with-virtualenvs
+  boxer sync $VAGRANT $sync --ignore-git
 }
 
 ulink() {
