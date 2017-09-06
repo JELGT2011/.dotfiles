@@ -1,16 +1,11 @@
 
-VAGRANT="ebon-hawk"
-KSCOPE="kaleidoscope-international"
+VAGRANT="serenity"
 
-pyprojects=("ufs" "chariots" "hailstorm_config")
-npmprojects=($KSCOPE "realtime-api")
-goprojects=("growth/alfa-romeo" "growth/silverback" "growth/social-profiles" "science/mazebackend")
+pyprojects=("chariots")
+npmprojects=()
+goprojects=()
 javaprojects=()
 projects=($pyprojects $npmprojects $goprojects $javaprojects)
-
-uvagrantls() {
-  boxer list_vagrants --owner=$UBER_OWNER
-}
 
 uvagrantcreate() {
   if [[ "$1" != "" ]]; then
@@ -51,9 +46,9 @@ uclean() {
 
 utunnel() {
   if [[ "$1" != "" ]]; then
-    ssh -fNL $1:localhost:$1 uber@$VAGRANT.dev
+    ssh -NL $1:localhost:$1 uber@$VAGRANT.dev
   else
-    ssh -fNL 14919:localhost:14919 uber@$VAGRANT.dev
+    echo "port number is required"
   fi
 }
 
@@ -61,37 +56,8 @@ usshrestart() {
   kill $(ps aux | grep ssh)
 }
 
-udb() {
-  if [[ "$1" != "" ]]; then
-    $1 -uuber -puber
-  else
-    mysql -uuber -puber
-  fi
-}
-
 uactivate() {
-  . "env/bin/activate"
-}
-
-uenv() {
-  uactivate "$*"
-}
-
-uvenv() {
-  uactivate "$*"
-}
-
-uproject() {
-  if [[ ${pyprojects[(r)$1]} == $1 ]]; then
-    cd $HOME/$1/
-    uenv $1
-  elif [[ ${npmprojects[(r)$1]} == $1 ]]; then
-    cd $HOME/$1/
-  elif [[ ${javaprojects[(r)$1]} == $1 ]]; then
-    cd $HOME/$1/
-  elif [[ ${goprojects[(r)$1]} == $1 ]]; then
-    cd $GOPATH/src/code.uber.internal/$1
-  fi
+  source "env/bin/activate"
 }
 
 usync() {
@@ -100,7 +66,11 @@ usync() {
     sync+=("uber/$i")
   done
   sync+=("uber/gocode/src")
-  boxer sync $VAGRANT $sync --ignore-git
+  boxer sync $VAGRANT $sync \
+      --allow-path-symlinks \
+      --ignore-git \
+      --with-node-modules \
+      --with-virtualenvs
 }
 
 ulink() {

@@ -10,8 +10,6 @@
   conflictstyle = diff3
 [url "ssh://git@github.com/uber/"]
 	insteadOf = https://github.com/uber/
-[url "ssh://git@github.com/uber/"]
-	insteadOf = https://github.com/uber/
 [url "ssh://gitolite@code.uber.internal/"]
 	insteadOf = git://code.uber.internal/
 [url "ssh://gitolite@code.uber.internal:2222/"]
