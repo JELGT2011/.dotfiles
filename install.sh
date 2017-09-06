@@ -2,6 +2,12 @@
 
 # install yadr
 if [[ ! -d "$HOME/.yadr" ]]; then
+  # install rvm, ruby, and rake
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+  \curl -sSL https://get.rvm.io | bash
+  source /home/uber/.rvm/scripts/rvm
+  rvm install ruby --latest
+  gem install rake
   sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 fi
 
@@ -17,7 +23,8 @@ osdetect
 # install rcp
 case "$ostype" in
   "linux")
-    sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+    wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
+    echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
     sudo apt-get update
     sudo apt-get install rcm
   ;;

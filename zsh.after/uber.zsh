@@ -1,5 +1,5 @@
 
-VAGRANT="millennium-falcon"
+VAGRANT="ebon-hawk"
 KSCOPE="kaleidoscope-international"
 
 pyprojects=("ufs" "chariots" "hailstorm_config")
@@ -16,7 +16,7 @@ uvagrantcreate() {
   if [[ "$1" != "" ]]; then
     boxer create_vagrant \
       --name "$1" \
-      --aws-type m4.4xlarge \
+      --aws-type c4.4xlarge \
       --aws-region us-west-1 \
       --distro jessie \
       --allow-rename \
