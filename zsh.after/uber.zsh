@@ -52,10 +52,6 @@ utunnel() {
   fi
 }
 
-usshrestart() {
-  kill $(ps aux | grep ssh)
-}
-
 uactivate() {
   source "env/bin/activate"
 }
