@@ -66,11 +66,7 @@ usync() {
     sync+=("uber/$i")
   done
   sync+=("uber/gocode/src")
-  boxer sync $VAGRANT $sync \
-      --allow-path-symlinks \
-      --ignore-git \
-      --with-node-modules \
-      --with-virtualenvs
+  boxer sync $VAGRANT $sync --allow-path-symlinks
 }
 
 ulink() {
