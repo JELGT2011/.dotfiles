@@ -1,12 +1,6 @@
 
 VAGRANT="serenity"
 
-pyprojects=("chariots")
-npmprojects=()
-goprojects=()
-javaprojects=()
-projects=($pyprojects $npmprojects $goprojects $javaprojects)
-
 uvagrantcreate() {
   if [[ "$1" != "" ]]; then
     boxer create_vagrant \
@@ -54,24 +48,6 @@ utunnel() {
 
 uactivate() {
   source "env/bin/activate"
-}
-
-usync() {
-  local sync=()
-  for i in $pyprojects $npmprojects $javaprojects; do
-    sync+=("uber/$i")
-  done
-  sync+=("uber/gocode/src")
-  boxer sync $VAGRANT $sync --allow-path-symlinks
-}
-
-ulink() {
-  for i in $pyprojects $npmprojects $javaprojects; do
-    ln -sf $HOME/Uber/sync/$VAGRANT.dev.uber.com/home/uber/$i $HOME/Repositories/
-  done
-  for i in $goprojects; do
-    ln -sf $GOPATH/src/code.uber.internal/$i $HOME/Repositories/
-  done
 }
 
 goclone() {
