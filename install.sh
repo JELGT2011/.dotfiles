@@ -18,22 +18,6 @@ here="$(dirname "$0")"
 
 cd $HOME/.dotfiles
 
-osdetect
-
-# install rcp
-case "$ostype" in
-  "linux")
-    wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
-    echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
-    sudo apt-get update
-    sudo apt-get install rcm
-  ;;
-  "osx")
-    brew tap thoughtbot/formulae
-    brew install rcm
-  ;;
-esac
-
 # install powerlevel9k terminal theme
 git clone https://github.com/bhilburn/powerlevel9k.git  ~/.zprezto/modules/prompt/external/powerlevel9k
 ln -s ~/.zprezto/modules/prompt/external/powerlevel9k/powerlevel9k.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_powerlevel9k_setup
@@ -44,7 +28,13 @@ if [[ ! -d "$HOME/.fonts" ]]; then
   $HOME/.fonts/install.sh
 fi
 
-rcup
+ln -s ~/.dotfiles/ssh/rc ~/.ssh/rc
+links=("kwm" "zsh.after" "gitconfig.user" "khdrc" "profile" "tmux.conf.user" "vimrc.after")
+for link in $links
+do
+  ln -s ~/.dotfiles/$link ~/
+  mv ~/$link ~/.$link
+done
 
 cd $HOME/.dotfiles
 
