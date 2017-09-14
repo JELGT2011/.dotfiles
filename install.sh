@@ -20,7 +20,7 @@ cd $HOME/.dotfiles
 
 # install powerlevel9k terminal theme
 git clone https://github.com/bhilburn/powerlevel9k.git  ~/.zprezto/modules/prompt/external/powerlevel9k
-ln -s ~/.zprezto/modules/prompt/external/powerlevel9k/powerlevel9k.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_powerlevel9k_setup
+ln -sf ~/.zprezto/modules/prompt/external/powerlevel9k/powerlevel9k.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_powerlevel9k_setup
 
 # install powerline fonts
 if [[ ! -d "$HOME/.fonts" ]]; then
@@ -28,11 +28,11 @@ if [[ ! -d "$HOME/.fonts" ]]; then
   $HOME/.fonts/install.sh
 fi
 
-ln -s ~/.dotfiles/ssh/rc ~/.ssh/rc
+ln -sf ~/.dotfiles/ssh/rc ~/.ssh/rc
 links=("kwm" "zsh.after" "gitconfig.user" "khdrc" "profile" "tmux.conf.user" "vimrc.after")
 for link in $links
 do
-  ln -s ~/.dotfiles/$link ~/
+  ln -sf ~/.dotfiles/$link ~/
   mv ~/$link ~/.$link
 done
 
