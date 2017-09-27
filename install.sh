@@ -29,6 +29,11 @@ if [[ ! -d "$HOME/.fonts" ]]; then
   $HOME/.fonts/install.sh
 fi
 
+# remove yadr created folders
+rm ~/.zsh.after
+rm ~/.zsh.before
+
+# create symlinks
 ln -sf ~/.dotfiles/ssh/rc ~/.ssh/rc
 links=("kwm" "zsh.after" "gitconfig.user" "khdrc" "profile" "tmux.conf.user" "vimrc.after")
 for link in $links
