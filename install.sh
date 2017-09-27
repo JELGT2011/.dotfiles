@@ -30,8 +30,8 @@ if [[ ! -d "$HOME/.fonts" ]]; then
 fi
 
 # remove yadr created folders
-rm ~/.zsh.after
-rm ~/.zsh.before
+rm -r ~/.zsh.after
+rm -r ~/.zsh.before
 
 # create symlinks
 ln -sf ~/.dotfiles/ssh/rc ~/.ssh/rc
