@@ -34,8 +34,7 @@ rm -r ~/.zsh.after
 rm -r ~/.zsh.before
 
 # create symlinks
-ln -sf ~/.dotfiles/ssh/rc ~/.ssh/rc
-links=("kwm" "zsh.after" "gitconfig.user" "khdrc" "profile" "tmux.conf.user" "vimrc.after")
+links=("kwm" "zsh.after" "gitconfig.user" "khdrc" "profile" "vimrc.after")
 for link in $links
 do
   ln -sf ~/.dotfiles/$link ~/

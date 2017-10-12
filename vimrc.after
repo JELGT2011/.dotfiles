@@ -6,4 +6,3 @@ autocmd VimEnter * if !argc() | NERDTree | endif
 " yav -u https://github.com/fatih/vim-go
 " yav -u https://github.com/OmniSharp/omnisharp-vim
 " yav -u https://github.com/tpope/vim-dispatch
-
