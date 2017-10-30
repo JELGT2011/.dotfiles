@@ -20,6 +20,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
 	<key>BadgeRightMargin</key>
@@ -648,11 +650,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>682 78 606 469 0 0 3360 1890 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>165 338 796 473 0 0 1680 1050 </string>
+	<string>165 364 1018 447 0 0 1680 1050 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>20 1514 1652 1474 0 0 1692 3008 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>20 537 395 491 0 0 1680 1050 </string>
+	<string>23 24 1634 1003 0 0 1680 1050 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3102,7 +3104,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-10-12T01:34:06Z</date>
+	<date>2017-10-20T17:43:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3162,7 +3164,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.2.beta.1</string>
+	<string>3.1.4.beta.1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
