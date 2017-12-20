@@ -4,6 +4,8 @@
 ### Project ###
 env
 secrets
+.idea/
+
 
 ### Windows ###
 # Windows image file caches
