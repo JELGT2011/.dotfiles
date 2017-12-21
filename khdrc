@@ -88,7 +88,7 @@ ctrl + alt + cmd + shift - 4     : chunkc tiling::window --send-to-desktop 4
 # ctrl + alt - l : chunkc tiling::window --use-insertion-point east
 
 # rotate tree
-# alt - r : chunkc tiling::desktop --rotate 90
+ctrl - s : chunkc tiling::desktop --rotate 90
 
 # mirror tree y-axis
 # alt - y : chunkc tiling::desktop --mirror vertical
