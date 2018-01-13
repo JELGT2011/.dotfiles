@@ -17,10 +17,10 @@ ctrl + alt - up    : chunkc tiling::window --swap north
 ctrl + alt - right : chunkc tiling::window --swap east
 
 # move window
-# ctrl + alt - left  : chunkc tiling::window --warp west
-# ctrl + alt - down  : chunkc tiling::window --warp south
-# ctrl + alt - up    : chunkc tiling::window --warp north
-# ctrl + alt - right : chunkc tiling::window --warp east
+ctrl + alt + cmd - left  : chunkc tiling::window --warp west
+ctrl + alt + cmd - down  : chunkc tiling::window --warp south
+ctrl + alt + cmd - up    : chunkc tiling::window --warp north
+ctrl + alt + cmd - right : chunkc tiling::window --warp east
 
 # make floating window fill screen
 # shift + alt - up     : chunkc tiling::window --grid-layout 1:1:0:0:1:1
@@ -125,6 +125,8 @@ ctrl - f : chunkc tiling::window --toggle fullscreen
 # ctrl + alt - d : chunkc tiling::desktop --layout float
 
 # ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
+ctrl + alt + cmd - r : brew services restart chunkwm
+ctrl + alt + cmd - s : pmset sleepnow
 
 # remap caps-lock to escape for this config only !!!
 # macos sierra can also perform this remap for a given keyboard
