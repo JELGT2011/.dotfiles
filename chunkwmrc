@@ -47,7 +47,7 @@ chunkc set window_region_locked          1
 #
 
 chunkc core::load tiling.so
-chunkc core::load ffm.so
+# chunkc core::load ffm.so
 
 #
 # NOTE: shell commands require escaped quotes
