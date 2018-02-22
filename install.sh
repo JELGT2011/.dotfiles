@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-set -e  # exit script if a command fails
-set -u  # treat unset variables as errors and exit immediately
-set -x  # print commands run by script to standard out
-set -o pipefail  # exit script if any piped program fails instead of just the last program
+set -x
 
 
 # install brew
