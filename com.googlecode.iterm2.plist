@@ -23,7 +23,7 @@
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
-	<false/>
+	<true/>
 	<key>BadgeRightMargin</key>
 	<integer>10</integer>
 	<key>BadgeTopMargin</key>
@@ -593,7 +593,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 4</string>
+	<string>1, 9</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -630,19 +630,23 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>1476 391 838 356 0 0 3360 1890 </string>
+	<string>1594 593 838 222 0 0 3360 1890 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>532 493 620 392 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1825 798 796 473 0 0 3360 1890 </string>
+	<string>1478 692 796 473 0 0 3360 1890 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>10 10 1665 1870 0 0 3360 1890 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>11 11 1662 1867 0 0 3360 1890 </string>
+	<string>12 13 822 923 0 0 3360 1890 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1027 1192 570 427 0 0 3360 1890 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>483 255 570 427 0 0 3360 1890 </string>
+	<key>NeverWarnAboutMeta</key>
+	<true/>
+	<key>NeverWarnAboutMeta_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1251,7 +1255,7 @@
 			<key>Normal Font</key>
 			<string>SourceCodeProForPowerline-Regular 12</string>
 			<key>Option Key Sends</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
@@ -3094,7 +3098,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-23T23:46:08Z</date>
+	<date>2018-02-23T19:59:59Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3154,7 +3158,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5.beta.2</string>
+	<string>3.1.6beta3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
