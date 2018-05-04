@@ -1,23 +1,11 @@
 #!/bin/bash
 
-#
-# NOTE: specify the absolutepath to the directory to use when
-#       loading a plugin. '~' expansion is supported.
-#
-
+# NOTE: specify the absolutepath to the directory to use when loading a plugin.
 chunkc core::plugin_dir ~/.chunkwm_plugins
-
-#
-# NOTE: if enabled, chunkwm will monitor the specified plugin_dir
-#       and automatically reload any '.so' file that is changed.
-#
-
 chunkc core::hotload 1
+chunkc core::load tiling.so
 
-#
 # NOTE: the following are config variables for the chunkwm-tiling plugin.
-#
-
 chunkc set global_desktop_mode           bsp
 
 chunkc set global_desktop_offset_top     10
@@ -41,18 +29,5 @@ chunkc set mouse_follows_focus           0
 chunkc set window_float_next             0
 chunkc set window_region_locked          1
 
-#
-# NOTE: specify plugins to load when chunkwm starts.
-#       if chunkc plugin_dir is not set, the absolutepath is necessary.
-#
-
-chunkc core::load tiling.so
-# chunkc core::load ffm.so
-
-#
-# NOTE: shell commands require escaped quotes
-#       to pass value containing a whitespace.
-#
-
-# chunkc tiling::rule --owner Finder --name Copy --state float
+# NOTE: shell commands require escaped quotes to pass value containing a whitespace.
 chunkc tiling::rule --owner \"App Store\" --state float
