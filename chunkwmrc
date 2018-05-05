@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# NOTE: specify the absolutepath to the directory to use when loading a plugin.
-chunkc core::plugin_dir ~/.chunkwm_plugins
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
 chunkc core::hotload 1
 chunkc core::load tiling.so
 
