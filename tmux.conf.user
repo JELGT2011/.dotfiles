@@ -3,5 +3,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 
-run '~/.tmux/plugins/tpm/tpm'
+set -g @resurrect-save 'X'
+set -g @resurrect-restore 'Z'
 
+run '~/.tmux/plugins/tpm/tpm'
