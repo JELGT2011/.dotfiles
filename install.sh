@@ -24,7 +24,6 @@ rm -rf ~/.zsh.before
 links=("zsh.after" "gitconfig.user" "khdrc" "chunkwmrc" "profile" "vimrc.after" "tmux.conf.user")
 for link in ${links[@]}
 do
-  ln -sf ~/.dotfiles/${link} ~/
-  mv ~/${link} ~/.${link}
+  ln -sf ~/.dotfiles/${link} ~/.${link}
 done
 ln -sf ~/.dotfiles/ssh/config ~/.ssh/
