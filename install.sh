@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-set -x
+set -eoux
 
 # install yadr
-alias rake='noglob rake'
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 
 # install powerlevel9k terminal theme
