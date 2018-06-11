@@ -23,7 +23,7 @@ rm -rf ~/.zsh.before
 [[ -d "~/.ssh/" ]] && mdkir ~/.ssh/
 
 source .osx/homebrew.sh
-rcup \
+rcup -v \
     -x README.md \
     -x install.sh \
     -x update.sh
