@@ -9,6 +9,10 @@ IFS=$'\n\t'
 
 # ~/.osx — https://mths.be/osx
 
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -31,25 +35,6 @@ sudo pmset -a standbydelay 86400
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Disable transparency in the menu bar and elsewhere on Yosemite
-#defaults write com.apple.universalaccess reduceTransparency -bool true
-
-# Menu bar: hide the Time Machine, Volume, and User icons
-#for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-#	defaults write "${domain}" dontAutoLoad -array \
-#		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-#		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-#		"/System/Library/CoreServices/Menu Extras/User.menu"
-#done
-#defaults write com.apple.systemuiserver menuExtras -array \
-#	"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-#	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-#	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
-#	"/System/Library/CoreServices/Menu Extras/Clock.menu"
-
-# Set highlight color to green
-# defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
-
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
@@ -58,14 +43,14 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Disable the over-the-top focus ring animation
-#defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
+defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
 # Disable smooth scrolling
 # (Uncomment if you’re on an older Mac that messes up the animation)
 defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
 
 # Increase window resize speed for Cocoa applications
-#defaults write NSGlobalDomain NSWindowResizeTime -float 0.25
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.25
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -124,11 +109,20 @@ sudo systemsetup -setcomputersleep Off > /dev/null
 # Disable Notification Center and remove the menu bar icon
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
-# Disable smart quotes as they’re annoying when typing code
-#defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# Disable automatic capitalization as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 # Disable smart dashes as they’re annoying when typing code
-#defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable automatic period substitution as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
@@ -192,6 +186,7 @@ sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -410,10 +405,6 @@ defaults write com.apple.dock autohide -bool true
 # Reset Launchpad, but keep the desktop wallpaper intact
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
-# Add iOS & Watch Simulator to Launchpad
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
-
 # Add a spacer to the left side of the Dock (where the applications are)
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
@@ -521,79 +512,6 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
 
 ###############################################################################
-# Spotlight                                                                   #
-###############################################################################
-
-# Hide Spotlight tray-icon (and subsequent helper)
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-
-# Disable Spotlight indexing for any volume that gets mounted and has not yet
-# been indexed before.
-# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
-# Change indexing order and disable some search results
-# Yosemite-specific search results (remove them if you are using OS X 10.9 or older):
-# 	MENU_DEFINITION
-# 	MENU_CONVERSION
-# 	MENU_EXPRESSION
-# 	MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
-# 	MENU_WEBSEARCH             (send search queries to Apple)
-# 	MENU_OTHER
-defaults write com.apple.spotlight orderedItems -array \
-	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
-	'{"enabled" = 1;"name" = "PDF";}' \
-	'{"enabled" = 1;"name" = "FONTS";}' \
-	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
-	'{"enabled" = 0;"name" = "MESSAGES";}' \
-	'{"enabled" = 0;"name" = "CONTACT";}' \
-	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
-	'{"enabled" = 0;"name" = "IMAGES";}' \
-	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-	'{"enabled" = 0;"name" = "MUSIC";}' \
-	'{"enabled" = 0;"name" = "MOVIES";}' \
-	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-	'{"enabled" = 0;"name" = "SOURCE";}' \
-	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
-	'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-	'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
-
-# Load new settings before rebuilding the index
-set +e
-killall mds > /dev/null 2>&1
-set -e
-
-# Make sure indexing is enabled for the main volume
-sudo mdutil -i on / > /dev/null
-
-# Rebuild the index from scratch
-sudo mdutil -E / > /dev/null
-
-###############################################################################
-# Terminal & iTerm 2                                                          #
-###############################################################################
-
-# Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
-
-# Enable “focus follows mouse” for Terminal.app and all X11 apps
-# i.e. hover over a window and start typing in it without clicking first
-#defaults write com.apple.terminal FocusFollowsMouse -bool true
-#defaults write org.x.X11 wm_ffm -bool true
-
-# Install the Solarized Dark theme for iTerm
-#open "${HOME}/init/Solarized Dark.itermcolors"
-
-# Don’t display the annoying prompt when quitting iTerm
-#defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-###############################################################################
 # Time Machine                                                                #
 ###############################################################################
 
@@ -693,7 +611,10 @@ APPS=(
     "Terminal"
     "iCal"
 )
+set +e
 for app in ${APPS[@]}; do
 	killall "${app}" &> /dev/null
 done
+set -e
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
