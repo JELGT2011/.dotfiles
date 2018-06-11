@@ -2,8 +2,7 @@
 # Created by https://www.gitignore.io/api/windows,linux,macos
 
 ### Project ###
-env
-secrets
+secrets.zsh
 .idea/
 
 
