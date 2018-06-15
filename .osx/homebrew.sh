@@ -10,7 +10,7 @@ IFS=$'\n\t'
 brew install jenv
 brew install rbenv
 brew install pyenv
+brew install nodenv
 brew tap thoughtbot/formulae
 brew install rcm
 brew install htop
-brew install nodenv
