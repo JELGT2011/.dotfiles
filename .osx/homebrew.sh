@@ -13,3 +13,4 @@ brew install pyenv
 brew tap thoughtbot/formulae
 brew install rcm
 brew install htop
+brew install nodenv

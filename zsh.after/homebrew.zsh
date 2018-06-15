@@ -8,7 +8,7 @@ function brew-upgrade() {
 
 function brew() {
     if [[ "$1" = "install" ]] || [[ "$1" = "tap" ]]; then
-        echo "brew $@" >> ~/.dotfiles/.osx/homebrew.sh
+        echo -e "brew $@\n" >> ~/.dotfiles/.osx/homebrew.sh
     fi
     command brew "$@"
 }
