@@ -1,6 +1,6 @@
 [user]
   name = Jason Libbey
-  email = jlibbey@uber.com
+  email = jlibbey@bird.co
 [credential]
   helper = osxkeychain
 [push]
