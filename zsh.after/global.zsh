@@ -4,3 +4,8 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 source ~/.secrets.zsh
+
+function kill-port() {
+  kill $(lsof -t -i :${1})
+}
+
