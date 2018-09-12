@@ -124,9 +124,9 @@ ctrl - f : chunkc tiling::window --toggle fullscreen
 # ctrl + alt - s : chunkc tiling::desktop --layout monocle
 # ctrl + alt - d : chunkc tiling::desktop --layout float
 
-# ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
-ctrl + alt + cmd - r : `brew services restart chunkwm`
-ctrl + alt + cmd - s : `pmset sleepnow`
+ctrl + alt + cmd - l : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev
+ctrl + alt + cmd - r : brew services restart chunkwm
+ctrl + alt + cmd - s : pmset sleepnow
 
 # remap caps-lock to escape for this config only !!!
 # macos sierra can also perform this remap for a given keyboard
