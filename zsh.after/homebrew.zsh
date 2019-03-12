@@ -6,5 +6,3 @@ function brew-upgrade() {
     brew update && brew upgrade
 }
 
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-
