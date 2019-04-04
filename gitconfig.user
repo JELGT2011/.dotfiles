@@ -1,10 +1,8 @@
 [user]
   name = Jason Libbey
-  email = jlibbey@bird.co
+  email = jelgt2011@gmail.com
 [credential]
   helper = osxkeychain
 [push]
   default = simple
-[merge]
-  tool = vimdiff
-  conflictstyle = diff3
+
