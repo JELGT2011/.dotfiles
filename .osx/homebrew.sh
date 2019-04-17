@@ -16,6 +16,5 @@ brew install rbenv
 brew install pyenv
 brew install nodenv
 brew install rcm
-brew install htop
 brew install chunkwm
 brew install koekeishiya/formulae/skhd
