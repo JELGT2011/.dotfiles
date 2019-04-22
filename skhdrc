@@ -1,5 +1,5 @@
 # reload config
-cmd + alt + ctrl - r : khd -e "reload"
+cmd + alt + ctrl - r : brew services restart chunkwm
 
 # focus window
 alt - h : chunkc tiling::window --focus west
