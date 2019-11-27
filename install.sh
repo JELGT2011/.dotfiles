@@ -6,7 +6,7 @@ set -x  # Print commands run by script to standard out.
 set -o pipefail  # Exit script if any piped program fails instead of just the last program.
 
 # install yadr
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/JELGT2011/dotfiles/master/install.sh)"
 
 # install powerlevel9k terminal theme
 git clone https://github.com/bhilburn/powerlevel9k.git  ~/.zprezto/modules/prompt/external/powerlevel9k
@@ -20,9 +20,9 @@ git clone https://github.com/powerline/fonts.git ~/.fonts
 rm -rf ~/.zsh.after
 rm -rf ~/.zsh.before
 
-[[ -d "~/.ssh/" ]] && mdkir ~/.ssh/
+[[ -d "${HOME}/.ssh/" ]] && mkdir ~/.ssh/
 
-source .osx/homebrew.sh
+.osx/homebrew-bootstrap.sh
 rcup -v \
     -x README.md \
     -x install.sh \

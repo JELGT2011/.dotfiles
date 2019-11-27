@@ -10,7 +10,6 @@ IFS=$'\n\t'
 brew tap thoughtbot/formulae
 brew tap crisidev/homebrew-chunkwm
 
-brew install jenv
 brew install nodenv
 brew install rbenv
 brew install pyenv
