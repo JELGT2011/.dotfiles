@@ -1,3 +1,4 @@
+DISABLE_CORRECTION="true"
 
 # shellcheck source=/Users/jlibbey/.secrets.zsh
 source "${HOME}/.secrets.zsh"
