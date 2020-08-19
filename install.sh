@@ -26,4 +26,5 @@ rm -rf ~/.zsh.before
 rcup -v \
     -x README.md \
     -x install.sh \
+    -x com.googlecode.iterm2.plist \
     -x update.sh
