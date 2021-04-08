@@ -8,12 +8,10 @@ set -o pipefail  # Exit script if any piped program fails instead of just the la
 IFS=$'\n\t'
 
 brew tap thoughtbot/formulae
-brew tap crisidev/homebrew-chunkwm
 
 brew install nodenv
 brew install rbenv
 brew install pyenv
-brew install nodenv
 brew install rcm
-brew install chunkwm
+brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
