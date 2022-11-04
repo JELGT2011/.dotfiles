@@ -19,3 +19,10 @@ brew install pyenv
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
+
+brew install --cask visual-studio-code
+brew install --cask intellij-idea
+brew install --cask karabiner-elements
+brew install --cask messenger
+brew install --cask spotify
+brew install --cask beardedspice
