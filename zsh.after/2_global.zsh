@@ -4,7 +4,6 @@ DISABLE_CORRECTION="true"
 source "${HOME}/.secrets.zsh"
 
 export PATH="${PATH}:${HOME}/bin/"
-export PATH="${PATH}:$(go env GOPATH)/bin"
 
 export ANDROID_SDK_ROOT="${HOME}/Library/Android/sdk"
 export ANDROID_HOME="${ANDROID_SDK_ROOT}"

@@ -14,7 +14,7 @@ brew install nodenv
 brew install nodenv/nodenv/node-build-update-defs
 
 brew install rbenv
-
+brew install goenv
 brew install pyenv
 
 brew install koekeishiya/formulae/yabai
