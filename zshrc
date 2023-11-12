@@ -6,6 +6,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source "/opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme"
+source "${HOME}/.secrets.zsh"
+
+export HOMEBREW_NO_SANDBOX=1
+export DISABLE_CORRECTION="true"
+
+# give each terminal its own history: https://linux.die.net/man/1/zshoptions
+unsetopt inc_append_history
+unsetopt share_history
 
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${HOME}/bin:${PATH}"
