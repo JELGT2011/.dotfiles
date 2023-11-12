@@ -1,3 +1,0 @@
-
-" Autostart NERDTree if vim is called with no arguments
-autocmd VimEnter * if !argc() | NERDTree | endif

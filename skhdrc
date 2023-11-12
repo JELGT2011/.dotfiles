@@ -33,8 +33,7 @@ shift + alt - d : yabai -m window --resize right:50:0
 # rotate tree
 ctrl - s : yabai -m space --rotate 90
 
+ctrl + shift - s : yabai -m window --toggle split
+
 # toggle window fullscreen
 ctrl - f : yabai -m window --toggle zoom-fullscreen
-
-ctrl + alt + cmd - r : brew services restart yabai
-ctrl + alt + cmd - s : pmset sleepnow

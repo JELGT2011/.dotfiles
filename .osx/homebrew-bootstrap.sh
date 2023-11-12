@@ -10,19 +10,14 @@ IFS=$'\n\t'
 brew tap thoughtbot/formulae
 brew install rcm
 
-brew install nodenv
-brew install nodenv/nodenv/node-build-update-defs
-
 brew install rbenv
-brew install goenv
 brew install pyenv
+brew install nodenv && brew install nodenv/nodenv/node-build-update-defs
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 
 brew install --cask visual-studio-code
-brew install --cask intellij-idea
 brew install --cask karabiner-elements
 brew install --cask messenger
 brew install --cask spotify
-brew install --cask beardedspice
