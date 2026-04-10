@@ -24,6 +24,8 @@ export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
 
 eval "$(nodenv init -)"
 
+. "$(brew --prefix z)/etc/profile.d/z.sh"
+
 # pyenv disabled — uncomment if needed
 # eval "$(pyenv init -)"
 # eval "$(rbenv init -)"
