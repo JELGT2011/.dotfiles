@@ -38,6 +38,11 @@ alias gco="git checkout"
 alias gb="git branch"
 alias ga="git add"
 
+alias claude-personal="CLAUDE_CONFIG_DIR=~/.claude-personal claude"
+alias claude-clevermore="CLAUDE_CONFIG_DIR=~/.claude-clevermore claude"
+alias claude-chad="CLAUDE_CONFIG_DIR=~/.claude-chad claude"
+alias claude-jinzo="CLAUDE_CONFIG_DIR=~/.claude-jinzo claude"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
