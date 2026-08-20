@@ -22,12 +22,10 @@ export PATH="/opt/homebrew/bin:${PATH}"
 
 export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
 
-eval "$(nodenv init -)"
-
 . "$(brew --prefix z)/etc/profile.d/z.sh"
 
-# pyenv disabled — uncomment if needed
-# eval "$(pyenv init -)"
+eval "$(nodenv init -)"
+eval "$(pyenv init -)"
 # eval "$(rbenv init -)"
 
 alias gc="git commit"
@@ -41,7 +39,18 @@ alias ga="git add"
 alias claude-personal="CLAUDE_CONFIG_DIR=~/.claude-personal claude"
 alias claude-clevermore="CLAUDE_CONFIG_DIR=~/.claude-clevermore claude"
 alias claude-chad="CLAUDE_CONFIG_DIR=~/.claude-chad claude"
-alias claude-jinzo="CLAUDE_CONFIG_DIR=~/.claude-jinzo claude"
+
+# opencode profiles — default (personal) uses ~/.config/opencode; these swap
+# config + data dirs for isolated auth/billing, MCP OAuth, and sessions
+alias opencode-clevermore="XDG_CONFIG_HOME=~/.config/opencode-clevermore XDG_DATA_HOME=~/.local/share/opencode-clevermore opencode"
+alias opencode-chad="XDG_CONFIG_HOME=~/.config/opencode-chad XDG_DATA_HOME=~/.local/share/opencode-chad opencode"
+
+# isolated Azure CLI session for JINZO — separate login/token cache/bicep from ~/.azure
+alias az-jinzo="AZURE_CONFIG_DIR=~/.azure-jinzo az"
+
+# chad PR sanity reviewer — terse Claude review, fired by a GitHub webhook when
+# JELGT2011 is requested on a chad-af PR. `chad-pr-reviewer` for start/stop/status.
+alias chad-pr-reviewer="~/.chad-pr-reviewer/bin/ctl.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
