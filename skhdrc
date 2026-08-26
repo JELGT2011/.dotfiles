@@ -24,11 +24,16 @@ ctrl + alt + cmd + shift - 2     : yabai -m window --space 2
 ctrl + alt + cmd + shift - 3     : yabai -m window --space 3
 ctrl + alt + cmd + shift - 4     : yabai -m window --space 4
 
-# increase region size
-shift + alt - a : yabai -m window --resize left:-50:0
-shift + alt - s : yabai -m window --resize bottom:0:50
-shift + alt - w : yabai -m window --resize top:0:-50
-shift + alt - d : yabai -m window --resize right:50:0
+# increase region size — increments tuned for 3008x1692 displays:
+# usable area 2988x1672 (10px padding); 249 = 2988/12, 209 = 1672/8,
+# so repeated presses land exactly on halves/thirds/quarters
+shift + alt - a : yabai -m window --resize left:-249:0
+shift + alt - s : yabai -m window --resize bottom:0:209
+shift + alt - w : yabai -m window --resize top:0:-209
+shift + alt - d : yabai -m window --resize right:249:0
+
+# rebalance all windows on the current space to equal size
+shift + alt - b : yabai -m space --balance
 
 # rotate tree
 ctrl - s : yabai -m space --rotate 90
