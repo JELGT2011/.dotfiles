@@ -46,8 +46,19 @@ alias opencode-personal="XDG_CONFIG_HOME=~/.config/opencode-personal XDG_DATA_HO
 alias opencode-clevermore="XDG_CONFIG_HOME=~/.config/opencode-clevermore XDG_DATA_HOME=~/.local/share/opencode-clevermore opencode"
 alias opencode-chad="XDG_CONFIG_HOME=~/.config/opencode-chad XDG_DATA_HOME=~/.local/share/opencode-chad opencode"
 
-# isolated Azure CLI session for JINZO — separate login/token cache/bicep from ~/.azure
-alias az-jinzo="AZURE_CONFIG_DIR=~/.azure-jinzo az"
+# azure profiles — each swaps AZURE_CONFIG_DIR for isolated login/token
+# cache/config/bicep; bare `az` is blocked so auth is always profile-scoped
+alias az-personal="AZURE_CONFIG_DIR=~/.azure-personal command az"
+alias az-clevermore="AZURE_CONFIG_DIR=~/.azure-clevermore command az"
+alias az-chad="AZURE_CONFIG_DIR=~/.azure-chad command az"
+az() { print -u2 "az: bare use disabled — use az-personal, az-clevermore, or az-chad"; return 1 }
+
+# gcloud profiles — each swaps CLOUDSDK_CONFIG for isolated credentials, ADC,
+# and config; bare `gcloud` is blocked so auth is always profile-scoped
+alias gcloud-personal="CLOUDSDK_CONFIG=~/.config/gcloud-personal command gcloud"
+alias gcloud-clevermore="CLOUDSDK_CONFIG=~/.config/gcloud-clevermore command gcloud"
+alias gcloud-chad="CLOUDSDK_CONFIG=~/.config/gcloud-chad command gcloud"
+gcloud() { print -u2 "gcloud: bare use disabled — use gcloud-personal, gcloud-clevermore, or gcloud-chad"; return 1 }
 
 # chad PR sanity reviewer — terse Claude review, fired by a GitHub webhook when
 # JELGT2011 is requested on a chad-af PR. `chad-pr-reviewer` for start/stop/status.
