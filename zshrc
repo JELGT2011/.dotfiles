@@ -40,8 +40,9 @@ alias claude-personal="CLAUDE_CONFIG_DIR=~/.claude-personal claude"
 alias claude-clevermore="CLAUDE_CONFIG_DIR=~/.claude-clevermore claude"
 alias claude-chad="CLAUDE_CONFIG_DIR=~/.claude-chad claude"
 
-# opencode profiles — default (personal) uses ~/.config/opencode; these swap
-# config + data dirs for isolated auth/billing, MCP OAuth, and sessions
+# opencode profiles — each swaps config + data dirs for isolated auth/billing,
+# MCP OAuth, and sessions; plain `opencode` stays the bare default
+alias opencode-personal="XDG_CONFIG_HOME=~/.config/opencode-personal XDG_DATA_HOME=~/.local/share/opencode-personal opencode"
 alias opencode-clevermore="XDG_CONFIG_HOME=~/.config/opencode-clevermore XDG_DATA_HOME=~/.local/share/opencode-clevermore opencode"
 alias opencode-chad="XDG_CONFIG_HOME=~/.config/opencode-chad XDG_DATA_HOME=~/.local/share/opencode-chad opencode"
 
