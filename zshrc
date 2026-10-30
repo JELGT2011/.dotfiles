@@ -66,6 +66,7 @@ alias chad-pr-reviewer="~/.chad-pr-reviewer/bin/ctl.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+typeset -ga POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS:#gcloud})
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jlibbey/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jlibbey/google-cloud-sdk/path.zsh.inc'; fi
