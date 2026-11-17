@@ -1,0 +1,115 @@
+{
+  "display_uuid": "7CB0D45A-C21D-42DA-860F-BBD99930879B",
+  "space_uuid": "40213DE3-B964-4B47-B4BA-D1B761B1F162",
+  "display_frame": {
+    "x": -3008.0,
+    "y": 0.0,
+    "w": 3008.0,
+    "h": 1692.0
+  },
+  "settings": {
+    "top_padding": 10,
+    "bottom_padding": 10,
+    "left_padding": 10,
+    "right_padding": 10,
+    "window_gap": 10
+  },
+  "windows": {
+    "linear": {
+      "app": "Linear",
+      "title": null,
+      "frame": {
+        "x": -2998.0,
+        "y": 10.0,
+        "w": 1489.0,
+        "h": 831.0
+      }
+    },
+    "slack": {
+      "app": "Slack",
+      "title": null,
+      "frame": {
+        "x": -1499.0,
+        "y": 10.0,
+        "w": 1489.0,
+        "h": 831.0
+      }
+    },
+    "reviewer": {
+      "app": "iTerm2",
+      "title": "PR Reviewer",
+      "frame": {
+        "x": -2998.0,
+        "y": 851.0,
+        "w": 739.0,
+        "h": 831.0
+      }
+    },
+    "proxy": {
+      "app": "iTerm2",
+      "title": "Slack Proxy",
+      "frame": {
+        "x": -2248.0,
+        "y": 851.0,
+        "w": 739.0,
+        "h": 831.0
+      }
+    },
+    "jarvis": {
+      "app": "Jarvis",
+      "title": "Jarvis",
+      "frame": {
+        "x": -1499.0,
+        "y": 851.0,
+        "w": 739.0,
+        "h": 831.0
+      }
+    },
+    "kalshi": {
+      "app": "Kalshi AI",
+      "title": null,
+      "frame": {
+        "x": -749.0,
+        "y": 851.0,
+        "w": 739.0,
+        "h": 831.0
+      }
+    }
+  },
+  "tree": {
+    "axis": "x",
+    "ratio": 0.5,
+    "children": [
+      {
+        "axis": "y",
+        "ratio": 0.5,
+        "children": [
+          "linear",
+          {
+            "axis": "x",
+            "ratio": 0.5,
+            "children": [
+              "reviewer",
+              "proxy"
+            ]
+          }
+        ]
+      },
+      {
+        "axis": "y",
+        "ratio": 0.5,
+        "children": [
+          "slack",
+          {
+            "axis": "x",
+            "ratio": 0.5,
+            "children": [
+              "jarvis",
+              "kalshi"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
