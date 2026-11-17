@@ -36,7 +36,7 @@
       }
     },
     "reviewer": {
-      "app": "iTerm2",
+      "app": "PR Reviewer",
       "title": "PR Reviewer",
       "frame": {
         "x": -2998.0,
@@ -46,7 +46,7 @@
       }
     },
     "proxy": {
-      "app": "iTerm2",
+      "app": "Slack Proxy",
       "title": "Slack Proxy",
       "frame": {
         "x": -2248.0,
@@ -111,5 +111,6 @@
         ]
       }
     ]
-  }
+  },
+  "portable_space_uuid": "40C93313-ADC5-413B-A4CD-A9E7DB3E503C"
 }

@@ -41,15 +41,44 @@ To run manually:
 ~/.config/yabai/layouts/restore-comms          # restore the saved layout
 ```
 
-All six apps/windows must be open and unminimized. The iTerm windows must
-be named `PR Reviewer` and `Slack Proxy`. Extra tiled windows must be moved
-or floated before restoring; floating windows such as Slack huddles are
-left alone. No apps are launched or restarted automatically.
+Launch defaults are installed by `yabairc` using `restore-layout.py --auto --install`.
+App rules send Linear, Slack, PR Reviewer, Slack Proxy, Jarvis, and Kalshi AI
+to the dedicated workspace; event handlers restore their order after launch,
+unhide, minimize/restore, or monitor changes. Only visible, unminimized windows
+participate in automatic placement. With fewer apps open, the remaining BSP
+branches expand into available space. The manual shortcut still requires all
+six windows. Slack huddles and auxiliary dialogs remain floating.
 
-`comms.json` stores the monitor and workspace UUIDs, window matches, split
-tree, and geometry. Adjust it for a different monitor or set of apps.
-If the saved workspace no longer exists, the command uses the monitor's
-sole ordinary workspace; it refuses an ambiguous destination.
+When the saved second monitor is connected, the target is **Comms**, using the
+original BSP slots. When it is absent, the target is **Comms-portable**, using
+stack layout so each app gets the available screen area. Switch apps normally
+to bring a stacked window forward. Reconnecting returns the apps to Comms.
+The portable workspace can also be selected manually:
+
+```sh
+~/.config/yabai/layouts/restore-comms --auto --portable
+```
+
+`comms.json` stores the monitor/workspace UUIDs, window matches, and split tree.
+Workspace labels are re-established from those UUIDs after Yabai restarts;
+routing rules are refreshed when the monitor topology changes. No hardcoded
+workspace numbers are used. Restore calls serialize, ignore duplicate launch
+events for the same windows, and return focus to the previously focused window.
+Logs are in `/tmp/yabai-comms-$(id -u).log`.
+
+SIP can stay enabled. Desktops are provisioned once through Mission Control;
+the scripts only label them and move app windows between them. On a new Mac
+or if a dedicated Desktop is deleted, create an empty Desktop on the target
+screen. For the portable Desktop, remember it with:
+
+```sh
+~/.config/yabai/layouts/restore-comms --provision-portable
+```
+
+Extra unrelated tiled windows on the destination must be moved or floated
+before restoring. No apps or services are launched, quit, or restarted by these
+scripts. Install/uninstall the runtime rules and signals by reloading Yabai;
+remove the Comms launch-defaults line from `yabairc` to disable them on startup.
 
 If an app stops responding to tiling after being rebuilt or renamed,
 Yabai may need its window tracking refreshed. A restore verifies the final

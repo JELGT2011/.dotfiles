@@ -9,3 +9,6 @@ yabai -m config bottom_padding 10
 yabai -m config left_padding   10
 yabai -m config right_padding  10
 yabai -m config window_gap     10
+
+# Comms launch defaults and monitor attach/detach handling (RCM-managed).
+/usr/bin/python3 "$HOME/.config/yabai/layouts/restore-layout.py" comms --auto --install >"/tmp/yabai-comms-$(id -u).log" 2>&1 &
